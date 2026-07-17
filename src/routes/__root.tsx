@@ -7,24 +7,54 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
+
+const SITE_URL = "https://ebmcolorado.com";
+
+const LOCAL_BUSINESS_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  name: "Every Body Moves",
+  description:
+    "Adaptive movement, yoga, and fitness classes for nursing homes, special-needs communities, and private clients across the greater Denver area.",
+  url: SITE_URL,
+  email: "EBMcolorado@gmail.com",
+  telephone: "+1-801-554-5563",
+  areaServed: {
+    "@type": "City",
+    name: "Denver",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressRegion: "CO",
+    addressCountry: "US",
+  },
+  knowsAbout: [
+    "Adaptive Yoga",
+    "Chair Yoga",
+    "Adaptive Dance",
+    "Senior Fitness",
+    "Inclusive Fitness",
+  ],
+};
 
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-display text-sage-deep">404</h1>
+        <h1 className="text-7xl font-display text-ink">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
         <p className="mt-2 text-sm text-muted-foreground">
           Let's get you back to something familiar.
         </p>
         <div className="mt-6">
-          <Link to="/" className="btn-primary">Go home</Link>
+          <Link to="/" className="btn-primary">
+            Go home
+          </Link>
         </div>
       </div>
     </div>
@@ -34,9 +64,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -49,12 +76,17 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
-            onClick={() => { router.invalidate(); reset(); }}
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
             className="btn-primary"
           >
             Try again
           </button>
-          <a href="/" className="btn-ghost">Go home</a>
+          <a href="/" className="btn-ghost">
+            Go home
+          </a>
         </div>
       </div>
     </div>
@@ -66,30 +98,49 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "EBM Colorado — Active Lifestyle Services for Every Body" },
+      { name: "theme-color", content: "#152238" },
+      { title: "Every Body Moves — Adaptive Movement Classes in the Greater Denver Area" },
       {
         name: "description",
         content:
-          "Warm, professional fitness and wellness programs for nursing homes, special-needs communities, and private in-home coaching across Colorado.",
+          "Every Body Moves brings adaptive yoga, chair fitness, and joyful movement classes to nursing homes, special-needs communities, and private homes across the greater Denver area.",
       },
-      { name: "author", content: "EBM Colorado" },
-      { property: "og:title", content: "EBM Colorado — Active Lifestyle Services" },
+      { name: "author", content: "Every Body Moves" },
+      { property: "og:site_name", content: "Every Body Moves" },
+      { property: "og:title", content: "Every Body Moves — Adaptive Movement for Every Body" },
       {
         property: "og:description",
         content:
-          "Chair yoga, seated Zumba, adaptive fitness, and private coaching that bring joyful movement to every community.",
+          "Adaptive yoga, chair fitness, and dance that bring energy and connection to every community in the greater Denver area.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: `${SITE_URL}/og-image.jpg` },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Every Body Moves — Adaptive Movement for Every Body" },
+      {
+        name: "twitter:description",
+        content: "Joyful, accessible movement classes for every body in the greater Denver area.",
+      },
+      { name: "twitter:image", content: `${SITE_URL}/og-image.jpg` },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "apple-touch-icon", href: "/favicon.svg" },
+      { rel: "canonical", href: SITE_URL },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(LOCAL_BUSINESS_JSONLD),
       },
     ],
   }),

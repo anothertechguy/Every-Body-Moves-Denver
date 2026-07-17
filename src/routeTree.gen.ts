@@ -9,8 +9,10 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WorkWithUsRouteImport } from './routes/work-with-us'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as InstructorsRouteImport } from './routes/instructors'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -19,6 +21,11 @@ import { Route as ServicesSpecialNeedsRouteImport } from './routes/services.spec
 import { Route as ServicesPrivateCoachingRouteImport } from './routes/services.private-coaching'
 import { Route as ServicesNursingHomesRouteImport } from './routes/services.nursing-homes'
 
+const WorkWithUsRoute = WorkWithUsRouteImport.update({
+  id: '/work-with-us',
+  path: '/work-with-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -27,6 +34,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InstructorsRoute = InstructorsRouteImport.update({
+  id: '/instructors',
+  path: '/instructors',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -69,8 +81,10 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/instructors': typeof InstructorsRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/work-with-us': typeof WorkWithUsRoute
   '/services/nursing-homes': typeof ServicesNursingHomesRoute
   '/services/private-coaching': typeof ServicesPrivateCoachingRoute
   '/services/special-needs': typeof ServicesSpecialNeedsRoute
@@ -80,7 +94,9 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/instructors': typeof InstructorsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/work-with-us': typeof WorkWithUsRoute
   '/services/nursing-homes': typeof ServicesNursingHomesRoute
   '/services/private-coaching': typeof ServicesPrivateCoachingRoute
   '/services/special-needs': typeof ServicesSpecialNeedsRoute
@@ -91,8 +107,10 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/instructors': typeof InstructorsRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/work-with-us': typeof WorkWithUsRoute
   '/services/nursing-homes': typeof ServicesNursingHomesRoute
   '/services/private-coaching': typeof ServicesPrivateCoachingRoute
   '/services/special-needs': typeof ServicesSpecialNeedsRoute
@@ -104,8 +122,10 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/instructors'
     | '/services'
     | '/sitemap.xml'
+    | '/work-with-us'
     | '/services/nursing-homes'
     | '/services/private-coaching'
     | '/services/special-needs'
@@ -115,7 +135,9 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/instructors'
     | '/sitemap.xml'
+    | '/work-with-us'
     | '/services/nursing-homes'
     | '/services/private-coaching'
     | '/services/special-needs'
@@ -125,8 +147,10 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/instructors'
     | '/services'
     | '/sitemap.xml'
+    | '/work-with-us'
     | '/services/nursing-homes'
     | '/services/private-coaching'
     | '/services/special-needs'
@@ -137,12 +161,21 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  InstructorsRoute: typeof InstructorsRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  WorkWithUsRoute: typeof WorkWithUsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/work-with-us': {
+      id: '/work-with-us'
+      path: '/work-with-us'
+      fullPath: '/work-with-us'
+      preLoaderRoute: typeof WorkWithUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -155,6 +188,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/instructors': {
+      id: '/instructors'
+      path: '/instructors'
+      fullPath: '/instructors'
+      preLoaderRoute: typeof InstructorsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -231,9 +271,21 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  InstructorsRoute: InstructorsRoute,
   ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  WorkWithUsRoute: WorkWithUsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
