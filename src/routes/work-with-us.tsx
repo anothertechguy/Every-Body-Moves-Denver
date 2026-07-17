@@ -54,24 +54,6 @@ const ways = [
   },
 ];
 
-const gallery = [
-  {
-    src: "/partners/cookies.jpg",
-    alt: "Custom Every Body Moves logo sugar cookies from a local bakery partner",
-    caption: "Custom logo cookies",
-  },
-  {
-    src: "/partners/macarons.jpg",
-    alt: "Every Body Moves branded macarons in blue, orange, and yellow",
-    caption: "Branded macarons",
-  },
-  {
-    src: "/partners/cupcakes.jpg",
-    alt: "Every Body Moves cupcakes topped with the logo in buttercream",
-    caption: "Celebration cupcakes",
-  },
-];
-
 function WorkWithUs() {
   return (
     <div>
@@ -170,41 +152,41 @@ function WorkWithUs() {
         </div>
       </section>
 
-      {/* GALLERY */}
+      {/* SPOTLIGHT CALLOUT */}
       <section className="py-8 lg:py-16">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-5xl px-5 lg:px-8">
           <Reveal>
-            <div className="text-sm uppercase tracking-[0.22em] text-rust font-semibold">
-              Partner spotlights
+            <div className="relative overflow-hidden soft-card p-10 lg:p-14 text-center">
+              <div className="blob w-[280px] h-[280px] bg-orange/20 -left-10 -top-10 float-slower" />
+              <div className="blob w-[240px] h-[240px] bg-marigold/25 right-0 bottom-0 float-slow" />
+              <div className="relative">
+                <div className="text-sm uppercase tracking-[0.22em] text-rust font-semibold">
+                  Partner spotlights
+                </div>
+                <blockquote className="mt-4 font-display text-3xl md:text-4xl text-ink text-balance max-w-3xl mx-auto leading-snug">
+                  "The little extras — a box of something sweet, a set of fresh scarves — are what
+                  residents talk about all week."
+                </blockquote>
+                <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
+                  From neighborhood bakeries to family-run shops, our partners help turn an ordinary
+                  class into something residents look forward to.
+                </p>
+                <div className="mt-8 flex flex-wrap justify-center gap-3">
+                  {["Bakeries & cafés", "Local shops", "Community groups", "Care teams"].map(
+                    (t) => (
+                      <span
+                        key={t}
+                        className="inline-flex items-center gap-2 rounded-full bg-muted px-4 py-2 text-sm font-medium text-ink"
+                      >
+                        <span className="h-1.5 w-1.5 rounded-full bg-orange" />
+                        {t}
+                      </span>
+                    ),
+                  )}
+                </div>
+              </div>
             </div>
-            <h2 className="mt-3 font-display text-4xl md:text-5xl text-ink text-balance max-w-2xl">
-              A little something extra goes a long way.
-            </h2>
-            <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
-              Our friends at local bakeries have surprised classes with custom treats — right down
-              to the logo. It's the kind of gesture residents remember long after the last bite.
-            </p>
           </Reveal>
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {gallery.map((g, i) => (
-              <Reveal key={g.src} delay={i * 100}>
-                <figure className="relative group">
-                  <div className="absolute -inset-3 bg-gradient-to-br from-orange/25 to-marigold/30 rounded-[2.25rem] blur-xl -z-10" />
-                  <img
-                    src={g.src}
-                    alt={g.alt}
-                    width={1200}
-                    height={1500}
-                    loading="lazy"
-                    className="rounded-[1.75rem] shadow-lift w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                  />
-                  <figcaption className="mt-4 text-center font-display text-lg text-ink">
-                    {g.caption}
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
