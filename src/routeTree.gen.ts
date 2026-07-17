@@ -9,38 +9,168 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesSpecialNeedsRouteImport } from './routes/services.special-needs'
+import { Route as ServicesPrivateCoachingRouteImport } from './routes/services.private-coaching'
+import { Route as ServicesNursingHomesRouteImport } from './routes/services.nursing-homes'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesSpecialNeedsRoute = ServicesSpecialNeedsRouteImport.update({
+  id: '/special-needs',
+  path: '/special-needs',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesPrivateCoachingRoute = ServicesPrivateCoachingRouteImport.update({
+  id: '/private-coaching',
+  path: '/private-coaching',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesNursingHomesRoute = ServicesNursingHomesRouteImport.update({
+  id: '/nursing-homes',
+  path: '/nursing-homes',
+  getParentRoute: () => ServicesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/nursing-homes': typeof ServicesNursingHomesRoute
+  '/services/private-coaching': typeof ServicesPrivateCoachingRoute
+  '/services/special-needs': typeof ServicesSpecialNeedsRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/nursing-homes': typeof ServicesNursingHomesRoute
+  '/services/private-coaching': typeof ServicesPrivateCoachingRoute
+  '/services/special-needs': typeof ServicesSpecialNeedsRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/nursing-homes': typeof ServicesNursingHomesRoute
+  '/services/private-coaching': typeof ServicesPrivateCoachingRoute
+  '/services/special-needs': typeof ServicesSpecialNeedsRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/services'
+    | '/sitemap.xml'
+    | '/services/nursing-homes'
+    | '/services/private-coaching'
+    | '/services/special-needs'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/sitemap.xml'
+    | '/services/nursing-homes'
+    | '/services/private-coaching'
+    | '/services/special-needs'
+    | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/services'
+    | '/sitemap.xml'
+    | '/services/nursing-homes'
+    | '/services/private-coaching'
+    | '/services/special-needs'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +178,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/special-needs': {
+      id: '/services/special-needs'
+      path: '/special-needs'
+      fullPath: '/services/special-needs'
+      preLoaderRoute: typeof ServicesSpecialNeedsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/private-coaching': {
+      id: '/services/private-coaching'
+      path: '/private-coaching'
+      fullPath: '/services/private-coaching'
+      preLoaderRoute: typeof ServicesPrivateCoachingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/nursing-homes': {
+      id: '/services/nursing-homes'
+      path: '/nursing-homes'
+      fullPath: '/services/nursing-homes'
+      preLoaderRoute: typeof ServicesNursingHomesRouteImport
+      parentRoute: typeof ServicesRoute
+    }
   }
 }
 
+interface ServicesRouteChildren {
+  ServicesNursingHomesRoute: typeof ServicesNursingHomesRoute
+  ServicesPrivateCoachingRoute: typeof ServicesPrivateCoachingRoute
+  ServicesSpecialNeedsRoute: typeof ServicesSpecialNeedsRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesNursingHomesRoute: ServicesNursingHomesRoute,
+  ServicesPrivateCoachingRoute: ServicesPrivateCoachingRoute,
+  ServicesSpecialNeedsRoute: ServicesSpecialNeedsRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  ServicesRoute: ServicesRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
