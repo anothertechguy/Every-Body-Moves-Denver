@@ -10,7 +10,6 @@ export const Route = createFileRoute("/services/private-coaching")({
       { name: "description", content: "One-on-one personal training and wellness coaching in your home, backyard, or building's gym anywhere along the Front Range." },
       { property: "og:title", content: "Private & In-Home Coaching — EBM Colorado" },
       { property: "og:description", content: "Personalized coaching where you already are. No commute, no crowds, just results." },
-      { property: "og:image", content: "/private-coaching-share.jpg" },
     ],
   }),
   component: PrivateCoaching,

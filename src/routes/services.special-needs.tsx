@@ -10,7 +10,6 @@ export const Route = createFileRoute("/services/special-needs")({
       { name: "description", content: "Sensory-friendly, adaptive fitness programs for autistic kids, ADHD, and adults of every ability across Colorado." },
       { property: "og:title", content: "Adaptive Fitness — EBM Colorado" },
       { property: "og:description", content: "Patient, playful, sensory-aware coaching that meets every ability." },
-      { property: "og:image", content: "/special-needs-share.jpg" },
     ],
   }),
   component: SpecialNeeds,

@@ -11,7 +11,6 @@ export const Route = createFileRoute("/services/nursing-homes")({
       { name: "description", content: "Weekly chair yoga, seated Zumba, gentle strength, and mobility programs designed for senior communities across Colorado." },
       { property: "og:title", content: "Nursing Home Fitness — EBM Colorado" },
       { property: "og:description", content: "Chair yoga, seated Zumba, and mobility programming that residents actually look forward to." },
-      { property: "og:image", content: "/nursing-homes-share.jpg" },
     ],
   }),
   component: NursingHomes,
