@@ -1,26 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { ArrowRight, Music, Sparkles, Heart, CheckCircle2, Users2 } from "lucide-react";
-import nursingImg from "@/assets/nursing-homes.jpg";
-import communityImg from "@/assets/community.jpg";
 import { Reveal, Parallax } from "@/components/Reveal";
+import { Pic } from "@/components/Pic";
 
 export const Route = createFileRoute("/services/nursing-homes")({
-  head: () => ({
-    meta: [
-      { title: "Nursing Home Fitness Programs — Every Body Moves" },
-      {
-        name: "description",
-        content:
-          "Weekly chair yoga, seated Zumba, gentle strength, and mobility programs designed for senior communities across Colorado.",
-      },
-      { property: "og:title", content: "Nursing Home Fitness — Every Body Moves" },
-      {
-        property: "og:description",
-        content:
-          "Chair yoga, seated Zumba, and mobility programming that residents actually look forward to.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "Nursing Home Fitness Programs — Every Body Moves",
+      description:
+        "Weekly chair yoga, seated Zumba, gentle strength, and mobility programs designed for senior communities across the greater Denver area.",
+      path: "/services/nursing-homes",
+    }),
   component: NursingHomes,
 });
 
@@ -83,8 +74,8 @@ function NursingHomes() {
               <Parallax speed={0.08}>
                 <div className="relative">
                   <div className="absolute -inset-6 bg-gradient-to-tr from-orange/40 to-ink-soft/40 rounded-[3rem] blur-2xl -z-10" />
-                  <img
-                    src={nursingImg}
+                  <Pic
+                    name="nursing-homes"
                     alt="Seniors doing seated Zumba with colorful scarves"
                     width={1600}
                     height={1104}
@@ -131,12 +122,11 @@ function NursingHomes() {
             <Parallax speed={0.05}>
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-br from-ink-soft/40 to-sand/60 rounded-[2.5rem] blur-xl -z-10" />
-                <img
-                  src={communityImg}
+                <Pic
+                  name="community"
                   alt="Two seniors holding hands in a movement class"
                   width={1408}
                   height={1008}
-                  loading="lazy"
                   className="rounded-[2rem] shadow-soft w-full aspect-[4/5] object-cover"
                 />
               </div>

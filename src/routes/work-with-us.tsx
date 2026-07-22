@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import communityImg from "@/assets/community.jpg";
+import { seo } from "@/lib/seo";
 import {
   ArrowRight,
   Gift,
@@ -10,24 +10,16 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { Reveal, Parallax } from "@/components/Reveal";
+import { Pic } from "@/components/Pic";
 
 export const Route = createFileRoute("/work-with-us")({
-  head: () => ({
-    meta: [
-      { title: "Work With Us — Every Body Moves" },
-      {
-        name: "description",
-        content:
-          "Local businesses and community partners help make Every Body Moves classes special — from treats and refreshments to sponsorships across the greater Denver area.",
-      },
-      { property: "og:title", content: "Work With Us — Every Body Moves" },
-      {
-        property: "og:description",
-        content:
-          "Partner with Every Body Moves to bring a little extra joy to movement classes across the greater Denver area.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "Work With Us — Every Body Moves",
+      description:
+        "Local businesses and community partners help make Every Body Moves classes special — from treats and refreshments to sponsorships across the greater Denver area.",
+      path: "/work-with-us",
+    }),
   component: WorkWithUs,
 });
 
@@ -103,12 +95,12 @@ function WorkWithUs() {
               <Parallax speed={0.07}>
                 <div className="relative">
                   <div className="absolute -inset-6 bg-gradient-to-tr from-orange/40 to-marigold/50 rounded-[3rem] blur-2xl -z-10" />
-                  <img
-                    src={communityImg}
+                  <Pic
+                    name="community"
                     alt="Neighbors and residents sharing a joyful moment together"
                     width={1408}
                     height={1056}
-                    fetchPriority="high"
+                    priority
                     className="rounded-[2.5rem] shadow-lift w-full aspect-[4/3] object-cover"
                   />
                 </div>

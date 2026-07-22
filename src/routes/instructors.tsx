@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { useState } from "react";
 import {
   ArrowRight,
@@ -12,26 +13,17 @@ import {
   Send,
   Sparkles,
 } from "lucide-react";
-import specialImg from "@/assets/special-needs.jpg";
 import { Reveal, Parallax } from "@/components/Reveal";
+import { Pic } from "@/components/Pic";
 
 export const Route = createFileRoute("/instructors")({
-  head: () => ({
-    meta: [
-      { title: "Teach With Us — Every Body Moves" },
-      {
-        name: "description",
-        content:
-          "Become an Every Body Moves instructor. Lead adaptive yoga, chair fitness, and dance classes for nursing homes and communities across the greater Denver area — flexible hours, meaningful work.",
-      },
-      { property: "og:title", content: "Teach With Us — Every Body Moves" },
-      {
-        property: "og:description",
-        content:
-          "Join a team of instructors bringing joyful, adaptive movement to the greater Denver area. Flexible schedules, paid training, work that matters.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "Teach With Us — Every Body Moves",
+      description:
+        "Become an Every Body Moves instructor. Lead adaptive yoga, chair fitness, and dance classes for nursing homes and communities across the greater Denver area — flexible hours, meaningful work.",
+      path: "/instructors",
+    }),
   component: Instructors,
 });
 
@@ -128,12 +120,12 @@ function Instructors() {
               <Parallax speed={0.07}>
                 <div className="relative">
                   <div className="absolute -inset-6 bg-gradient-to-tr from-orange/40 to-sky/50 rounded-[3rem] blur-2xl -z-10" />
-                  <img
-                    src={specialImg}
+                  <Pic
+                    name="special-needs"
                     alt="An Every Body Moves instructor encouraging a participant"
                     width={1600}
                     height={1104}
-                    fetchPriority="high"
+                    priority
                     className="rounded-[2.5rem] shadow-lift w-full aspect-[4/3] object-cover"
                   />
                 </div>
@@ -265,10 +257,12 @@ function Instructors() {
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="text-sm font-medium text-ink">
+                        <label htmlFor="apply-classes" className="text-sm font-medium text-ink">
                           Classes you'd love to lead
                         </label>
                         <select
+                          id="apply-classes"
+                          name="classes"
                           className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 outline-none focus:border-ink transition-colors"
                           defaultValue=""
                         >
@@ -295,10 +289,12 @@ function Instructors() {
                       placeholder="https://"
                     />
                     <div>
-                      <label className="text-sm font-medium text-ink">
+                      <label htmlFor="apply-experience" className="text-sm font-medium text-ink">
                         Certifications & experience
                       </label>
                       <textarea
+                        id="apply-experience"
+                        name="experience"
                         rows={4}
                         className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 outline-none focus:border-ink transition-colors resize-none"
                         placeholder="Tell us about your certifications (yoga, group fitness, CPR…) and any experience with seniors or adaptive fitness."
@@ -334,17 +330,20 @@ function Field({
   required?: boolean;
   placeholder?: string;
 }) {
+  const id = `apply-${name}`;
   return (
     <div>
-      <label className="text-sm font-medium text-ink">
+      <label htmlFor={id} className="text-sm font-medium text-ink">
         {label}
         {required && <span className="text-rust"> *</span>}
       </label>
       <input
+        id={id}
         name={name}
         type={type}
         required={required}
         placeholder={placeholder}
+        autoComplete={type === "email" ? "email" : type === "tel" ? "tel" : "on"}
         className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 outline-none focus:border-ink transition-colors"
       />
     </div>

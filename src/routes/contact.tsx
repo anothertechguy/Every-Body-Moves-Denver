@@ -1,24 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Every Body Moves" },
-      {
-        name: "description",
-        content:
-          "Get in touch with Every Body Moves about programming for your community, family, or private coaching across the greater Denver area.",
-      },
-      { property: "og:title", content: "Contact Every Body Moves" },
-      {
-        property: "og:description",
-        content: "Let's talk about bringing joyful movement to your community.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "Contact — Every Body Moves",
+      description:
+        "Get in touch with Every Body Moves about programming for your community, family, or private coaching across the greater Denver area.",
+      path: "/contact",
+    }),
   component: Contact,
 });
 
@@ -126,8 +119,12 @@ function Contact() {
                     <div className="grid sm:grid-cols-2 gap-4">
                       <Field label="Phone" name="phone" type="tel" />
                       <div>
-                        <label className="text-sm font-medium text-ink">I'm interested in</label>
+                        <label htmlFor="contact-interest" className="text-sm font-medium text-ink">
+                          I'm interested in
+                        </label>
                         <select
+                          id="contact-interest"
+                          name="interest"
                           className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 outline-none focus:border-ink transition-colors"
                           defaultValue=""
                         >
@@ -142,8 +139,12 @@ function Contact() {
                       </div>
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-ink">Tell us a little more</label>
+                      <label htmlFor="contact-message" className="text-sm font-medium text-ink">
+                        Tell us a little more
+                      </label>
                       <textarea
+                        id="contact-message"
+                        name="message"
                         rows={5}
                         className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 outline-none focus:border-ink transition-colors resize-none"
                         placeholder="Where are you located? What kind of programming are you thinking about?"
@@ -174,16 +175,19 @@ function Field({
   type?: string;
   required?: boolean;
 }) {
+  const id = `contact-${name}`;
   return (
     <div>
-      <label className="text-sm font-medium text-ink">
+      <label htmlFor={id} className="text-sm font-medium text-ink">
         {label}
         {required && <span className="text-rust"> *</span>}
       </label>
       <input
+        id={id}
         name={name}
         type={type}
         required={required}
+        autoComplete={type === "email" ? "email" : type === "tel" ? "tel" : "on"}
         className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 outline-none focus:border-ink transition-colors"
       />
     </div>

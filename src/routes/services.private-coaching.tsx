@@ -1,25 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { ArrowRight, Home, Calendar, Target, HeartPulse, CheckCircle2 } from "lucide-react";
-import privateImg from "@/assets/private-coaching.jpg";
 import { Reveal, Parallax } from "@/components/Reveal";
+import { Pic } from "@/components/Pic";
 
 export const Route = createFileRoute("/services/private-coaching")({
-  head: () => ({
-    meta: [
-      { title: "Private & In-Home Coaching — Every Body Moves" },
-      {
-        name: "description",
-        content:
-          "One-on-one personal training and wellness coaching in your home, backyard, or building's gym anywhere across the greater Denver area.",
-      },
-      { property: "og:title", content: "Private & In-Home Coaching — Every Body Moves" },
-      {
-        property: "og:description",
-        content:
-          "Personalized coaching where you already are. No commute, no crowds, just results.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "Private & In-Home Coaching — Every Body Moves",
+      description:
+        "One-on-one personal training and wellness coaching in your home, backyard, or building's gym anywhere across the greater Denver area.",
+      path: "/services/private-coaching",
+    }),
   component: PrivateCoaching,
 });
 
@@ -81,8 +73,8 @@ function PrivateCoaching() {
               <Parallax speed={0.08}>
                 <div className="relative">
                   <div className="absolute -inset-6 bg-gradient-to-tr from-rust/40 to-sand/60 rounded-[3rem] blur-2xl -z-10" />
-                  <img
-                    src={privateImg}
+                  <Pic
+                    name="private-coaching"
                     alt="Trainer coaching a client at home with dumbbells"
                     width={1600}
                     height={1104}

@@ -1,4 +1,3 @@
-import { QueryClient } from "@tanstack/react-query";
 import { createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 
@@ -8,15 +7,10 @@ const viteBase = import.meta.env.BASE_URL || "/";
 const basepath = viteBase === "/" ? undefined : viteBase.replace(/\/$/, "");
 
 export const getRouter = () => {
-  const queryClient = new QueryClient();
-
-  const router = createRouter({
+  return createRouter({
     routeTree,
-    context: { queryClient },
     basepath,
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
   });
-
-  return router;
 };

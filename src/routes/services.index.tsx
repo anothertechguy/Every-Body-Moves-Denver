@@ -1,27 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { ArrowRight, Heart, Users, Home as HomeIcon } from "lucide-react";
-import nursingImg from "@/assets/nursing-homes.jpg";
-import specialImg from "@/assets/special-needs.jpg";
-import privateImg from "@/assets/private-coaching.jpg";
 import { Reveal } from "@/components/Reveal";
+import { Pic } from "@/components/Pic";
 
 export const Route = createFileRoute("/services/")({
-  head: () => ({
-    meta: [
-      { title: "Services — Every Body Moves" },
-      {
-        name: "description",
-        content:
-          "Chair yoga & Zumba for nursing homes, adaptive fitness for special needs, and private in-home coaching.",
-      },
-      { property: "og:title", content: "Services — Every Body Moves" },
-      {
-        property: "og:description",
-        content:
-          "Programs tailored to nursing homes, special-needs communities, and private coaching clients.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "Services — Every Body Moves",
+      description:
+        "Chair yoga & Zumba for nursing homes, adaptive fitness for special needs, and private in-home coaching across the greater Denver area.",
+      path: "/services",
+    }),
   component: ServicesIndex,
 });
 
@@ -30,7 +20,7 @@ const cards = [
     to: "/services/nursing-homes",
     title: "Nursing Homes",
     icon: Heart,
-    img: nursingImg,
+    img: "nursing-homes" as const,
     tag: "Senior Communities",
     body: "Chair yoga, seated Zumba, gentle strength, and mobility work — designed to keep residents moving, laughing, and connecting week after week.",
   },
@@ -38,7 +28,7 @@ const cards = [
     to: "/services/special-needs",
     title: "Special Needs",
     icon: Users,
-    img: specialImg,
+    img: "special-needs" as const,
     tag: "All Abilities",
     body: "Sensory-aware, patient, playful fitness for autistic kids, ADHD, and adults of every ability. We build confidence one small win at a time.",
   },
@@ -46,7 +36,7 @@ const cards = [
     to: "/services/private-coaching",
     title: "Private & In-Home",
     icon: HomeIcon,
-    img: privateImg,
+    img: "private-coaching" as const,
     tag: "1-on-1",
     body: "Personal coaching where you live — living rooms, backyards, condo gyms. Meeting you exactly where you are, on your schedule.",
   },
@@ -84,12 +74,12 @@ function ServicesIndex() {
               >
                 <div className="relative">
                   <div className="absolute -inset-4 bg-gradient-to-br from-orange/30 to-ink-soft/30 rounded-[2rem] blur-xl -z-10" />
-                  <img
-                    src={c.img}
+                  <Pic
+                    name={c.img}
                     alt={c.title}
                     width={1600}
                     height={1200}
-                    loading="lazy"
+                    sizes="(min-width: 768px) 33vw, 100vw"
                     className="rounded-[1.5rem] aspect-[5/4] object-cover w-full transition-transform duration-700 group-hover:scale-[1.02]"
                   />
                 </div>

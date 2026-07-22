@@ -1,26 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { ArrowRight, Heart, Sparkles, Users } from "lucide-react";
-import communityImg from "@/assets/community.jpg";
-import heroImg from "@/assets/hero-home.jpg";
 import { Reveal, Parallax } from "@/components/Reveal";
+import { Pic } from "@/components/Pic";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — Every Body Moves" },
-      {
-        name: "description",
-        content:
-          "Every Body Moves brings gentle, joyful, adaptive fitness to Colorado's nursing homes, families, and communities of every ability.",
-      },
-      { property: "og:title", content: "About Every Body Moves" },
-      {
-        property: "og:description",
-        content:
-          "Our story, our people, and why we believe every body deserves the joy of movement.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "About — Every Body Moves",
+      description:
+        "Every Body Moves brings gentle, joyful, adaptive fitness to Denver-area nursing homes, families, and communities of every ability.",
+      path: "/about",
+    }),
   component: About,
 });
 
@@ -52,12 +43,11 @@ function About() {
           <Parallax speed={0.05}>
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-br from-orange/40 to-ink-soft/40 rounded-[2.5rem] blur-xl -z-10" />
-              <img
-                src={heroImg}
+              <Pic
+                name="hero-home"
                 alt="Instructor guiding seniors in chair yoga"
                 width={1600}
                 height={1104}
-                loading="lazy"
                 className="rounded-[2rem] shadow-soft aspect-[4/3] object-cover w-full"
               />
             </div>
@@ -144,12 +134,11 @@ function About() {
           <Parallax speed={0.05}>
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-br from-ink-soft/40 to-sand/60 rounded-[2.5rem] blur-xl -z-10" />
-              <img
-                src={communityImg}
+              <Pic
+                name="community"
                 alt="Two seniors holding hands in a movement class"
                 width={1408}
                 height={1008}
-                loading="lazy"
                 className="rounded-[2rem] shadow-soft aspect-[4/5] object-cover w-full"
               />
             </div>

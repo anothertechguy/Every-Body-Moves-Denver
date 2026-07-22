@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import {
   ArrowRight,
   Heart,
@@ -8,29 +9,17 @@ import {
   CheckCircle2,
   Quote,
 } from "lucide-react";
-import heroImg from "@/assets/hero-home.jpg";
-import communityImg from "@/assets/community.jpg";
-import nursingImg from "@/assets/nursing-homes.jpg";
-import specialImg from "@/assets/special-needs.jpg";
-import privateImg from "@/assets/private-coaching.jpg";
 import { Reveal, Parallax } from "@/components/Reveal";
+import { Pic } from "@/components/Pic";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Every Body Moves — Joyful Movement for Every Body" },
-      {
-        name: "description",
-        content:
-          "Every Body Moves brings chair yoga, seated Zumba, and adaptive fitness to nursing homes, special-needs communities, and private homes across Colorado.",
-      },
-      { property: "og:title", content: "Every Body Moves — Joyful Movement for Every Body" },
-      {
-        property: "og:description",
-        content: "Warm, professional wellness programs that meet every community where they are.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "Every Body Moves — Adaptive Movement Classes in the Greater Denver Area",
+      description:
+        "Every Body Moves brings chair yoga, seated Zumba, and adaptive fitness to nursing homes, special-needs communities, and private homes across the greater Denver area.",
+      path: "/",
+    }),
   component: Home,
 });
 
@@ -39,7 +28,7 @@ const services = [
     to: "/services/nursing-homes",
     title: "Nursing Homes",
     body: "Weekly chair yoga, seated Zumba, and mobility programs that keep residents smiling, stretching, and connected.",
-    img: nursingImg,
+    img: "nursing-homes" as const,
     icon: Heart,
     tint: "from-orange/70 to-sand/70",
   },
@@ -47,7 +36,7 @@ const services = [
     to: "/services/special-needs",
     title: "Special Needs",
     body: "Adaptive fitness for autistic kids, ADHD, and every ability — patient coaches, sensory-friendly sessions.",
-    img: specialImg,
+    img: "special-needs" as const,
     icon: Users,
     tint: "from-ink-soft/70 to-sky/70",
   },
@@ -55,7 +44,7 @@ const services = [
     to: "/services/private-coaching",
     title: "Private & In-Home",
     body: "One-on-one coaching in your living room, backyard, or building's gym — meeting you exactly where you are.",
-    img: privateImg,
+    img: "private-coaching" as const,
     icon: HomeIcon,
     tint: "from-rust/70 to-orange/60",
   },
@@ -130,12 +119,12 @@ function Home() {
               <Parallax speed={0.08}>
                 <div className="relative">
                   <div className="absolute -inset-6 bg-gradient-to-tr from-orange/40 to-ink-soft/40 rounded-[3rem] blur-2xl -z-10" />
-                  <img
-                    src={heroImg}
+                  <Pic
+                    name="hero-home"
                     alt="Fitness instructor leading seniors in chair yoga"
                     width={1600}
                     height={1104}
-                    fetchPriority="high"
+                    priority
                     className="w-full rounded-[2.5rem] shadow-lift object-cover aspect-[4/3]"
                   />
                   <div className="absolute -bottom-6 -left-6 soft-card px-5 py-4 max-w-[220px] hidden md:block animate-fade-up">
@@ -164,12 +153,11 @@ function Home() {
               <Parallax speed={0.05}>
                 <div className="relative">
                   <div className="absolute -inset-4 bg-gradient-to-br from-ink-soft/40 to-sand/60 rounded-[2.5rem] blur-xl -z-10" />
-                  <img
-                    src={communityImg}
+                  <Pic
+                    name="community"
                     alt="Two seniors holding hands during a movement class"
                     width={1408}
                     height={1008}
-                    loading="lazy"
                     className="rounded-[2rem] shadow-soft object-cover aspect-[4/5] w-full"
                   />
                 </div>
@@ -242,12 +230,12 @@ function Home() {
                   className="group block soft-card overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-lift"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    <img
-                      src={s.img}
+                    <Pic
+                      name={s.img}
                       alt={s.title}
                       width={1600}
                       height={1200}
-                      loading="lazy"
+                      sizes="(min-width: 768px) 33vw, 100vw"
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div

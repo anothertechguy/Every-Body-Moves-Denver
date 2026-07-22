@@ -66,6 +66,8 @@ export function SiteNav() {
               <button
                 className="nav-link flex items-center gap-1"
                 data-status={inServices ? "active" : undefined}
+                aria-expanded={servicesOpen}
+                aria-haspopup="menu"
                 onClick={() => setServicesOpen((v) => !v)}
               >
                 Services{" "}
