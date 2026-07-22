@@ -4,6 +4,8 @@
  * viewport with a compressed JPEG fallback — the difference between shipping
  * ~15 KB and ~180 KB on mobile.
  */
+import { asset } from "@/lib/assets";
+
 const VARIANT_WIDTHS = [480, 800, 1200, 1600];
 
 // Widest generated variant per photo (sources narrower than 1600 skip that size).
@@ -35,14 +37,14 @@ export function Pic({
   priority?: boolean;
 }) {
   const avifSrcSet = VARIANT_WIDTHS.filter((w) => w <= (MAX_WIDTH[name] ?? 1600))
-    .map((w) => `/images/${name}-${w}.avif ${w}w`)
+    .map((w) => `${asset(`images/${name}-${w}.avif`)} ${w}w`)
     .join(", ");
 
   return (
     <picture>
       <source type="image/avif" srcSet={avifSrcSet} sizes={sizes} />
       <img
-        src={`/images/${name}.jpg`}
+        src={asset(`images/${name}.jpg`)}
         alt={alt}
         width={width}
         height={height}

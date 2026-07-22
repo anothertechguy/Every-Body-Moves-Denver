@@ -9,6 +9,7 @@ import {
 import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { asset } from "../lib/assets";
 import { SITE_URL } from "../lib/seo";
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
@@ -127,22 +128,22 @@ export const Route = createRootRoute({
     links: [
       {
         rel: "preload",
-        href: "/fonts/manrope-var.woff2",
+        href: asset("fonts/manrope-var.woff2"),
         as: "font",
         type: "font/woff2",
         crossOrigin: "anonymous",
       },
       {
         rel: "preload",
-        href: "/fonts/plus-jakarta-sans-var.woff2",
+        href: asset("fonts/plus-jakarta-sans-var.woff2"),
         as: "font",
         type: "font/woff2",
         crossOrigin: "anonymous",
       },
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-      { rel: "icon", href: "/favicon.ico", sizes: "32x32" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      { rel: "icon", href: asset("favicon.svg"), type: "image/svg+xml" },
+      { rel: "icon", href: asset("favicon.ico"), sizes: "32x32" },
+      { rel: "apple-touch-icon", href: asset("apple-touch-icon.png") },
     ],
     scripts: [
       {
