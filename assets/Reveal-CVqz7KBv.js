@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-bzQ4Vb5N.js";var t=e();function n({children:e,className:n=``,delay:r=0}){return(0,t.jsx)(`div`,{className:`reveal ${n}`,style:r?{"--reveal-delay":`${r}ms`}:void 0,children:e})}function r({children:e,className:n=``}){return(0,t.jsx)(`div`,{className:n,children:e})}export{n,r as t};
