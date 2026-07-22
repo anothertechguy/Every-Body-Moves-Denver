@@ -59,7 +59,7 @@ function Home() {
         <div className="blob w-[420px] h-[420px] bg-ink-soft/60 right-0 top-40 float-slow" />
         <div className="blob w-[300px] h-[300px] bg-sand/70 left-1/2 bottom-0 float-slow" />
 
-        <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-16 pb-24 lg:pt-24 lg:pb-32">
+        <div className="relative mx-auto max-w-7xl px-5 lg:px-8 pt-16 pb-16 lg:pt-24 lg:pb-32">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
               <Reveal>
@@ -146,7 +146,7 @@ function Home() {
       </section>
 
       {/* ABOUT */}
-      <section className="relative py-24 lg:py-32">
+      <section className="relative py-16 lg:py-32">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             <div className="order-2 lg:order-1 lg:col-span-5">
@@ -205,7 +205,7 @@ function Home() {
       </section>
 
       {/* WHAT WE DO */}
-      <section className="relative py-24 lg:py-32">
+      <section className="relative py-16 lg:py-32">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-sand/30 via-transparent to-transparent" />
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
@@ -261,7 +261,7 @@ function Home() {
       </section>
 
       {/* HOW WE HELP */}
-      <section className="py-24 lg:py-32">
+      <section className="py-16 lg:py-32">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <Reveal>
@@ -322,7 +322,7 @@ function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
+      <section className="relative py-16 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-ink to-ink-soft" />
           <div className="blob w-[500px] h-[500px] bg-orange/40 -left-20 top-10 float-slow" />
@@ -374,7 +374,7 @@ function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-24">
+      <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-5xl px-5 lg:px-8">
           <Reveal>
             <div className="relative overflow-hidden rounded-[2.5rem] p-10 md:p-16 bg-gradient-to-br from-orange to-rust text-cream shadow-lift">
