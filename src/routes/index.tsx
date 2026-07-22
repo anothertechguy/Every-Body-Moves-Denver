@@ -149,7 +149,7 @@ function Home() {
       <section className="relative py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-5">
+            <div className="order-2 lg:order-1 lg:col-span-5">
               <Parallax speed={0.05}>
                 <div className="relative">
                   <div className="absolute -inset-4 bg-gradient-to-br from-ink-soft/40 to-sand/60 rounded-[2.5rem] blur-xl -z-10" />
@@ -163,7 +163,7 @@ function Home() {
                 </div>
               </Parallax>
             </div>
-            <div className="lg:col-span-7">
+            <div className="order-1 lg:order-2 lg:col-span-7">
               <Reveal>
                 <div className="text-sm uppercase tracking-[0.22em] text-rust font-semibold">
                   About EBM
