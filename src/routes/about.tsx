@@ -11,6 +11,10 @@ export const Route = createFileRoute("/about")({
       description:
         "Every Body Moves brings gentle, joyful, adaptive fitness to Denver-area nursing homes, families, and communities of every ability.",
       path: "/about",
+      breadcrumbs: [
+        { name: "Home", path: "/" },
+        { name: "About", path: "/about" },
+      ],
     }),
   component: About,
 });
@@ -38,7 +42,7 @@ function About() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-14 lg:py-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
           <Parallax speed={0.05}>
             <div className="relative">
@@ -73,7 +77,7 @@ function About() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-14 lg:py-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
             <h2 className="font-display text-4xl md:text-5xl text-ink text-balance max-w-2xl">
@@ -112,7 +116,7 @@ function About() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-14 lg:py-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
           <Reveal>
             <div>

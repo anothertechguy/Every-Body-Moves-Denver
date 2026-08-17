@@ -11,6 +11,10 @@ export const Route = createFileRoute("/services/")({
       description:
         "Chair yoga & Zumba for nursing homes, adaptive fitness for special needs, and private in-home coaching across the greater Denver area.",
       path: "/services",
+      breadcrumbs: [
+        { name: "Home", path: "/" },
+        { name: "Services", path: "/services" },
+      ],
     }),
   component: ServicesIndex,
 });

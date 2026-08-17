@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { seo } from "@/lib/seo";
+import { seo, BUSINESS_ID, SITE_URL } from "@/lib/seo";
 import { ArrowRight, Music, Sparkles, Heart, CheckCircle2, Users2 } from "lucide-react";
 import { Reveal, Parallax } from "@/components/Reveal";
 import { Pic } from "@/components/Pic";
@@ -11,6 +11,24 @@ export const Route = createFileRoute("/services/nursing-homes")({
       description:
         "Weekly chair yoga, seated Zumba, gentle strength, and mobility programs designed for senior communities across the greater Denver area.",
       path: "/services/nursing-homes",
+      breadcrumbs: [
+        { name: "Home", path: "/" },
+        { name: "Services", path: "/services" },
+        { name: "Nursing Homes", path: "/services/nursing-homes" },
+      ],
+      jsonLd: [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Senior Fitness Programming",
+          name: "Nursing Home Fitness Programs",
+          description:
+            "Weekly chair yoga, seated Zumba, and mobility programming for nursing homes and senior living communities.",
+          areaServed: { "@type": "City", name: "Denver" },
+          url: `${SITE_URL}/services/nursing-homes`,
+          provider: { "@id": BUSINESS_ID },
+        },
+      ],
     }),
   component: NursingHomes,
 });
@@ -44,7 +62,7 @@ function NursingHomes() {
       <section className="relative overflow-hidden hero-surface">
         <div className="blob w-[520px] h-[520px] bg-orange/50 -left-32 top-20 float-slower" />
         <div className="blob w-[400px] h-[400px] bg-ink-soft/60 right-0 bottom-0 float-slow" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-20 pb-24 lg:pt-24 lg:pb-28 relative">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-20 pb-16 lg:pt-24 lg:pb-28 relative">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
               <Reveal>
@@ -88,7 +106,7 @@ function NursingHomes() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
             <h2 className="font-display text-4xl md:text-5xl text-ink text-balance max-w-2xl">
@@ -116,7 +134,7 @@ function NursingHomes() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <Parallax speed={0.05}>

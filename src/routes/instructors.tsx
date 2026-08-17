@@ -21,8 +21,12 @@ export const Route = createFileRoute("/instructors")({
     seo({
       title: "Teach With Us — Every Body Moves",
       description:
-        "Become an Every Body Moves instructor. Lead adaptive yoga, chair fitness, and dance classes for nursing homes and communities across the greater Denver area — flexible hours, meaningful work.",
+        "Become an Every Body Moves instructor. Lead adaptive yoga, chair fitness, and dance classes across the greater Denver area — flexible hours, meaningful work.",
       path: "/instructors",
+      breadcrumbs: [
+        { name: "Home", path: "/" },
+        { name: "Instructors", path: "/instructors" },
+      ],
     }),
   component: Instructors,
 });
@@ -78,7 +82,7 @@ function Instructors() {
       <section className="relative overflow-hidden hero-surface">
         <div className="blob w-[480px] h-[480px] bg-orange/45 -left-28 top-10 float-slower" />
         <div className="blob w-[380px] h-[380px] bg-sky/50 right-0 bottom-0 float-slow" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-20 pb-24 lg:pt-24 lg:pb-28 relative">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-20 pb-16 lg:pt-24 lg:pb-28 relative">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
               <Reveal>
@@ -136,7 +140,7 @@ function Instructors() {
       </section>
 
       {/* PERKS */}
-      <section className="py-24">
+      <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
             <div className="max-w-2xl">

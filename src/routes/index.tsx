@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
     seo({
       title: "Every Body Moves — Adaptive Movement Classes in the Greater Denver Area",
       description:
-        "Every Body Moves brings chair yoga, seated Zumba, and adaptive fitness to nursing homes, special-needs communities, and private homes across the greater Denver area.",
+        "Chair yoga, seated Zumba, and adaptive fitness for nursing homes, special-needs communities, and private homes across the greater Denver area.",
       path: "/",
     }),
   component: Home,

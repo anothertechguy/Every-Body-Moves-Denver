@@ -37,21 +37,9 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
 
   /* Brand palette — navy ink, energetic orange, warm marigold + cream */
   --color-ink: var(--ink);
@@ -107,24 +95,11 @@
 
   --card: #ffffff;
   --card-foreground: var(--foreground);
-  --popover: #ffffff;
-  --popover-foreground: var(--foreground);
 
-  --primary: var(--ink);
-  --primary-foreground: var(--cream);
-  --secondary: var(--sand);
-  --secondary-foreground: var(--ink);
   --muted: #f2ead9;
   --muted-foreground: #5b6a7e;
-  --accent: var(--orange);
-  --accent-foreground: #ffffff;
-
-  --destructive: #d1462f;
-  --destructive-foreground: #ffffff;
 
   --border: #e9dfcd;
-  --input: #e9dfcd;
-  --ring: var(--ink);
 }
 
 @layer base {

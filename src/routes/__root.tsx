@@ -10,13 +10,14 @@ import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { asset } from "../lib/assets";
-import { SITE_URL } from "../lib/seo";
+import { SITE_URL, BUSINESS_ID } from "../lib/seo";
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
 
 const LOCAL_BUSINESS_JSONLD = {
   "@context": "https://schema.org",
   "@type": "HealthAndBeautyBusiness",
+  "@id": BUSINESS_ID,
   name: "Every Body Moves",
   description:
     "Adaptive movement, yoga, and fitness classes for nursing homes, special-needs communities, and private clients across the greater Denver area.",

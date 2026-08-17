@@ -17,8 +17,12 @@ export const Route = createFileRoute("/work-with-us")({
     seo({
       title: "Work With Us — Every Body Moves",
       description:
-        "Local businesses and community partners help make Every Body Moves classes special — from treats and refreshments to sponsorships across the greater Denver area.",
+        "Local businesses and community partners help make Every Body Moves classes special — sponsorships, treats, and support across the greater Denver area.",
       path: "/work-with-us",
+      breadcrumbs: [
+        { name: "Home", path: "/" },
+        { name: "Work With Us", path: "/work-with-us" },
+      ],
     }),
   component: WorkWithUs,
 });
@@ -53,7 +57,7 @@ function WorkWithUs() {
       <section className="relative overflow-hidden hero-surface">
         <div className="blob w-[460px] h-[460px] bg-orange/40 -left-28 top-10 float-slower" />
         <div className="blob w-[380px] h-[380px] bg-marigold/50 right-0 bottom-0 float-slow" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-20 pb-24 lg:pt-24 lg:pb-28 relative">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-20 pb-16 lg:pt-24 lg:pb-28 relative">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
               <Reveal>
@@ -111,7 +115,7 @@ function WorkWithUs() {
       </section>
 
       {/* WAYS TO PARTNER */}
-      <section className="py-24">
+      <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
             <div className="max-w-2xl">
@@ -183,7 +187,7 @@ function WorkWithUs() {
       </section>
 
       {/* CTA */}
-      <section className="py-24">
+      <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-5xl px-5 lg:px-8">
           <Reveal>
             <div className="relative overflow-hidden rounded-[2.5rem] p-10 md:p-16 bg-gradient-to-br from-ink to-ink-soft text-cream shadow-lift">

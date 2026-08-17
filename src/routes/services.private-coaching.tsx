@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { seo } from "@/lib/seo";
+import { seo, BUSINESS_ID, SITE_URL } from "@/lib/seo";
 import { ArrowRight, Home, Calendar, Target, HeartPulse, CheckCircle2 } from "lucide-react";
 import { Reveal, Parallax } from "@/components/Reveal";
 import { Pic } from "@/components/Pic";
@@ -11,6 +11,24 @@ export const Route = createFileRoute("/services/private-coaching")({
       description:
         "One-on-one personal training and wellness coaching in your home, backyard, or building's gym anywhere across the greater Denver area.",
       path: "/services/private-coaching",
+      breadcrumbs: [
+        { name: "Home", path: "/" },
+        { name: "Services", path: "/services" },
+        { name: "Private Coaching", path: "/services/private-coaching" },
+      ],
+      jsonLd: [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Personal Training",
+          name: "Private & In-Home Coaching",
+          description:
+            "One-on-one personal training and wellness coaching delivered in the client's home.",
+          areaServed: { "@type": "City", name: "Denver" },
+          url: `${SITE_URL}/services/private-coaching`,
+          provider: { "@id": BUSINESS_ID },
+        },
+      ],
     }),
   component: PrivateCoaching,
 });
@@ -44,7 +62,7 @@ function PrivateCoaching() {
       <section className="relative overflow-hidden hero-surface">
         <div className="blob w-[420px] h-[420px] bg-rust/40 -left-24 top-10 float-slower" />
         <div className="blob w-[380px] h-[380px] bg-ink-soft/50 right-0 bottom-0 float-slow" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-20 pb-24 relative">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-20 pb-16 lg:pb-24 relative">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
               <Reveal>
@@ -87,7 +105,7 @@ function PrivateCoaching() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
             <h2 className="font-display text-4xl md:text-5xl text-ink text-balance max-w-2xl">
@@ -110,7 +128,7 @@ function PrivateCoaching() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-6xl px-5 lg:px-8">
           <div className="grid md:grid-cols-2 gap-10">
             <Reveal>

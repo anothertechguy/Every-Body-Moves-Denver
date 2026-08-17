@@ -11,6 +11,10 @@ export const Route = createFileRoute("/contact")({
       description:
         "Get in touch with Every Body Moves about programming for your community, family, or private coaching across the greater Denver area.",
       path: "/contact",
+      breadcrumbs: [
+        { name: "Home", path: "/" },
+        { name: "Contact", path: "/contact" },
+      ],
     }),
   component: Contact,
 });

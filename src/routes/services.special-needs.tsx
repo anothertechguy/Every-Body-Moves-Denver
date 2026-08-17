@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { seo } from "@/lib/seo";
+import { seo, BUSINESS_ID, SITE_URL } from "@/lib/seo";
 import { ArrowRight, Puzzle, HeartHandshake, Smile, Shield, CheckCircle2 } from "lucide-react";
 import { Reveal, Parallax } from "@/components/Reveal";
 import { Pic } from "@/components/Pic";
@@ -11,6 +11,24 @@ export const Route = createFileRoute("/services/special-needs")({
       description:
         "Sensory-friendly, adaptive fitness programs for autistic kids, ADHD, and adults of every ability across the greater Denver area.",
       path: "/services/special-needs",
+      breadcrumbs: [
+        { name: "Home", path: "/" },
+        { name: "Services", path: "/services" },
+        { name: "Special Needs", path: "/services/special-needs" },
+      ],
+      jsonLd: [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Adaptive Fitness",
+          name: "Adaptive Fitness for Special Needs",
+          description:
+            "Sensory-friendly, adaptive fitness sessions for autistic kids, ADHD, and adults of every ability.",
+          areaServed: { "@type": "City", name: "Denver" },
+          url: `${SITE_URL}/services/special-needs`,
+          provider: { "@id": BUSINESS_ID },
+        },
+      ],
     }),
   component: SpecialNeeds,
 });
@@ -44,7 +62,7 @@ function SpecialNeeds() {
       <section className="relative overflow-hidden hero-surface">
         <div className="blob w-[420px] h-[420px] bg-sky/60 -left-24 top-10 float-slower" />
         <div className="blob w-[380px] h-[380px] bg-sand/70 right-0 bottom-0 float-slow" />
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-20 pb-24 relative">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-20 pb-16 lg:pb-24 relative">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
               <Reveal>
@@ -87,7 +105,7 @@ function SpecialNeeds() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
             <h2 className="font-display text-4xl md:text-5xl text-ink text-balance max-w-2xl">
@@ -110,7 +128,7 @@ function SpecialNeeds() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-6xl px-5 lg:px-8">
           <Reveal>
             <div className="soft-card p-10 lg:p-14">
