@@ -140,6 +140,23 @@
   text-wrap: balance;
 }
 
+/* Marker-pen headline highlight. Replaces the old inline-block + absolute-bar
+   pattern, which misrendered when the phrase wrapped: the bar stretched to the
+   container edge and trailing punctuation could orphan onto its own line
+   (visible on narrower iPhones). A background underline with
+   box-decoration-break: clone follows the text through any line break. */
+@utility hl-marker {
+  background-image: linear-gradient(
+    color-mix(in oklab, var(--orange) 45%, transparent),
+    color-mix(in oklab, var(--orange) 45%, transparent)
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em;
+  background-position: 0 82%;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 @utility blob {
   position: absolute;
   border-radius: 9999px;

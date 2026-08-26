@@ -18,8 +18,8 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSpecialNeedsRouteImport } from './routes/services.special-needs'
+import { Route as ServicesSeniorCommunitiesRouteImport } from './routes/services.senior-communities'
 import { Route as ServicesPrivateCoachingRouteImport } from './routes/services.private-coaching'
-import { Route as ServicesNursingHomesRouteImport } from './routes/services.nursing-homes'
 
 const WorkWithUsRoute = WorkWithUsRouteImport.update({
   id: '/work-with-us',
@@ -66,14 +66,15 @@ const ServicesSpecialNeedsRoute = ServicesSpecialNeedsRouteImport.update({
   path: '/special-needs',
   getParentRoute: () => ServicesRoute,
 } as any)
+const ServicesSeniorCommunitiesRoute =
+  ServicesSeniorCommunitiesRouteImport.update({
+    id: '/senior-communities',
+    path: '/senior-communities',
+    getParentRoute: () => ServicesRoute,
+  } as any)
 const ServicesPrivateCoachingRoute = ServicesPrivateCoachingRouteImport.update({
   id: '/private-coaching',
   path: '/private-coaching',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesNursingHomesRoute = ServicesNursingHomesRouteImport.update({
-  id: '/nursing-homes',
-  path: '/nursing-homes',
   getParentRoute: () => ServicesRoute,
 } as any)
 
@@ -85,8 +86,8 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/work-with-us': typeof WorkWithUsRoute
-  '/services/nursing-homes': typeof ServicesNursingHomesRoute
   '/services/private-coaching': typeof ServicesPrivateCoachingRoute
+  '/services/senior-communities': typeof ServicesSeniorCommunitiesRoute
   '/services/special-needs': typeof ServicesSpecialNeedsRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -97,8 +98,8 @@ export interface FileRoutesByTo {
   '/instructors': typeof InstructorsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/work-with-us': typeof WorkWithUsRoute
-  '/services/nursing-homes': typeof ServicesNursingHomesRoute
   '/services/private-coaching': typeof ServicesPrivateCoachingRoute
+  '/services/senior-communities': typeof ServicesSeniorCommunitiesRoute
   '/services/special-needs': typeof ServicesSpecialNeedsRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -111,8 +112,8 @@ export interface FileRoutesById {
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/work-with-us': typeof WorkWithUsRoute
-  '/services/nursing-homes': typeof ServicesNursingHomesRoute
   '/services/private-coaching': typeof ServicesPrivateCoachingRoute
+  '/services/senior-communities': typeof ServicesSeniorCommunitiesRoute
   '/services/special-needs': typeof ServicesSpecialNeedsRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -126,8 +127,8 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/work-with-us'
-    | '/services/nursing-homes'
     | '/services/private-coaching'
+    | '/services/senior-communities'
     | '/services/special-needs'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
@@ -138,8 +139,8 @@ export interface FileRouteTypes {
     | '/instructors'
     | '/sitemap.xml'
     | '/work-with-us'
-    | '/services/nursing-homes'
     | '/services/private-coaching'
+    | '/services/senior-communities'
     | '/services/special-needs'
     | '/services'
   id:
@@ -151,8 +152,8 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/work-with-us'
-    | '/services/nursing-homes'
     | '/services/private-coaching'
+    | '/services/senior-communities'
     | '/services/special-needs'
     | '/services/'
   fileRoutesById: FileRoutesById
@@ -232,6 +233,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesSpecialNeedsRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/services/senior-communities': {
+      id: '/services/senior-communities'
+      path: '/senior-communities'
+      fullPath: '/services/senior-communities'
+      preLoaderRoute: typeof ServicesSeniorCommunitiesRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/private-coaching': {
       id: '/services/private-coaching'
       path: '/private-coaching'
@@ -239,26 +247,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesPrivateCoachingRouteImport
       parentRoute: typeof ServicesRoute
     }
-    '/services/nursing-homes': {
-      id: '/services/nursing-homes'
-      path: '/nursing-homes'
-      fullPath: '/services/nursing-homes'
-      preLoaderRoute: typeof ServicesNursingHomesRouteImport
-      parentRoute: typeof ServicesRoute
-    }
   }
 }
 
 interface ServicesRouteChildren {
-  ServicesNursingHomesRoute: typeof ServicesNursingHomesRoute
   ServicesPrivateCoachingRoute: typeof ServicesPrivateCoachingRoute
+  ServicesSeniorCommunitiesRoute: typeof ServicesSeniorCommunitiesRoute
   ServicesSpecialNeedsRoute: typeof ServicesSpecialNeedsRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
-  ServicesNursingHomesRoute: ServicesNursingHomesRoute,
   ServicesPrivateCoachingRoute: ServicesPrivateCoachingRoute,
+  ServicesSeniorCommunitiesRoute: ServicesSeniorCommunitiesRoute,
   ServicesSpecialNeedsRoute: ServicesSpecialNeedsRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }

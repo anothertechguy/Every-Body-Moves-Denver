@@ -1,7 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { seo } from "@/lib/seo";
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  CheckCircle2,
+  Instagram as InstagramIcon,
+  Facebook as FacebookIcon,
+  Linkedin as LinkedinIcon,
+} from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/contact")({
@@ -50,10 +59,10 @@ function Contact() {
               {
                 icon: Mail,
                 label: "Email",
-                value: "EBMcolorado@gmail.com",
-                href: "mailto:EBMcolorado@gmail.com",
+                value: "cassie@everybodymovesco.com",
+                href: "mailto:cassie@everybodymovesco.com",
               },
-              { icon: Phone, label: "Phone", value: "(801) 554-5563", href: "tel:+18015545563" },
+              { icon: Phone, label: "Phone", value: "(720) 463-3385", href: "tel:+17204633385" },
               { icon: MapPin, label: "Serving", value: "The greater Denver area", href: undefined },
             ].map((c) => {
               const inner = (
@@ -91,6 +100,52 @@ function Contact() {
                 <div className="text-sm text-muted-foreground mt-2">
                   Every message goes to a real person on our team.
                 </div>
+              </div>
+            </Reveal>
+
+            <Reveal>
+              <div className="soft-card p-6">
+                <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                  Find us on social
+                </div>
+                <ul className="mt-3 space-y-2.5">
+                  <li>
+                    <a
+                      href="https://www.instagram.com/everybodymovesco"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-3 text-ink hover:text-rust transition-colors"
+                    >
+                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-orange to-marigold text-white shadow-soft shrink-0">
+                        <InstagramIcon className="h-4 w-4" />
+                      </span>
+                      <span>
+                        <span className="block font-semibold">Instagram</span>
+                        <span className="block text-sm text-muted-foreground">
+                          @EveryBodyMovesCO
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-3 text-ink">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-orange to-marigold text-white shadow-soft shrink-0">
+                      <FacebookIcon className="h-4 w-4" />
+                    </span>
+                    <span>
+                      <span className="block font-semibold">Facebook</span>
+                      <span className="block text-sm text-muted-foreground">Every Body Moves</span>
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3 text-ink">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-orange to-marigold text-white shadow-soft shrink-0">
+                      <LinkedinIcon className="h-4 w-4" />
+                    </span>
+                    <span>
+                      <span className="block font-semibold">LinkedIn</span>
+                      <span className="block text-sm text-muted-foreground">Every Body Moves</span>
+                    </span>
+                  </li>
+                </ul>
               </div>
             </Reveal>
           </div>
@@ -135,7 +190,7 @@ function Contact() {
                           <option value="" disabled>
                             Choose one…
                           </option>
-                          <option>Nursing home programming</option>
+                          <option>Senior community programming</option>
                           <option>Special needs coaching</option>
                           <option>Private / in-home coaching</option>
                           <option>Something else</option>

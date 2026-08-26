@@ -5,9 +5,9 @@ import { Logo } from "./Logo";
 
 const serviceLinks = [
   {
-    to: "/services/nursing-homes",
-    label: "Nursing Homes",
-    desc: "Adaptive yoga, dance & mobility",
+    to: "/services/senior-communities",
+    label: "Senior Communities",
+    desc: "Chair yoga, dance, Tai Chi & mobility",
   },
   {
     to: "/services/special-needs",

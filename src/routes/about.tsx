@@ -9,7 +9,7 @@ export const Route = createFileRoute("/about")({
     seo({
       title: "About — Every Body Moves",
       description:
-        "Every Body Moves brings gentle, joyful, adaptive fitness to Denver-area nursing homes, families, and communities of every ability.",
+        "Every Body Moves brings gentle, joyful, adaptive fitness to Denver-area senior communities, families, and communities of every ability.",
       path: "/about",
       breadcrumbs: [
         { name: "Home", path: "/" },
@@ -67,11 +67,57 @@ function About() {
                 together is a stubborn belief: fitness should belong to everyone.
               </p>
               <p className="mt-4 text-lg text-muted-foreground">
-                We started in a handful of nursing homes and grew — one activity director, one
+                We started in a handful of senior communities and grew — one activity director, one
                 family, one client at a time — because word travels when something actually works.
                 Today we serve communities across the greater Denver metro, and we're still growing
                 carefully, one relationship at a time.
               </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ABOUT THE OWNER */}
+      <section className="py-14 lg:py-20">
+        <div className="mx-auto max-w-6xl px-5 lg:px-8">
+          <Reveal>
+            <div className="soft-card overflow-hidden">
+              <div className="grid md:grid-cols-12 items-stretch">
+                <div className="md:col-span-5 lg:col-span-4">
+                  <Pic
+                    name="cassie"
+                    alt="Cassie, owner and director of Every Body Moves"
+                    width={1600}
+                    height={2416}
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="h-full w-full object-cover aspect-[4/5] md:aspect-auto"
+                  />
+                </div>
+                <div className="md:col-span-7 lg:col-span-8 p-8 md:p-10 lg:p-14 flex flex-col justify-center">
+                  <div className="text-sm uppercase tracking-[0.22em] text-rust font-semibold">
+                    About the Owner
+                  </div>
+                  <h2 className="mt-3 font-display text-4xl md:text-5xl text-ink text-balance">
+                    Meet Cassie.
+                  </h2>
+                  <p className="mt-6 text-lg text-muted-foreground">
+                    Every Body Moves is led by Cassie — a young mom of two kiddos with a lifelong
+                    love of movement. She started Every Body Moves with a simple wish: that
+                    everyone, whatever their age or ability, gets the same opportunity to feel the
+                    joy of moving.
+                  </p>
+                  <p className="mt-4 text-lg text-muted-foreground">
+                    You'll find her leading classes across the greater Denver area — music on,
+                    scarves out, cheering on every small win in the room.
+                  </p>
+                  <div className="mt-6 font-semibold text-ink">
+                    Cassie
+                    <span className="block text-sm font-normal text-muted-foreground">
+                      Owner &amp; Director, Every Body Moves
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -99,7 +145,7 @@ function About() {
               {
                 icon: Sparkles,
                 title: "Small wins matter",
-                body: "The first push from a chair. The first Zumba shimmy. We celebrate all of it.",
+                body: "The first push from a chair. The first dance shimmy. We celebrate all of it.",
               },
             ].map((v, i) => (
               <Reveal key={v.title} delay={i * 100}>
@@ -124,7 +170,7 @@ function About() {
                 Who we help
               </h2>
               <p className="mt-5 text-lg text-muted-foreground">
-                Nursing homes, assisted living communities, memory care units, families raising kids
+                Senior communities — from assisted living to memory care — families raising kids
                 with special needs, adults who want to work out at home, and anyone in between. If
                 you or the people you love could use a little more movement, we're your team.
               </p>

@@ -1,36 +1,36 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { seo, BUSINESS_ID, SITE_URL } from "@/lib/seo";
-import { ArrowRight, Music, Sparkles, Heart, CheckCircle2, Users2 } from "lucide-react";
+import { ArrowRight, Music, Sparkles, Heart, CheckCircle2, Wind } from "lucide-react";
 import { Reveal, Parallax } from "@/components/Reveal";
 import { Pic } from "@/components/Pic";
 
-export const Route = createFileRoute("/services/nursing-homes")({
+export const Route = createFileRoute("/services/senior-communities")({
   head: () =>
     seo({
-      title: "Nursing Home Fitness Programs — Every Body Moves",
+      title: "Senior Community Fitness Programs — Every Body Moves",
       description:
-        "Weekly chair yoga, seated Zumba, gentle strength, and mobility programs designed for senior communities across the greater Denver area.",
-      path: "/services/nursing-homes",
+        "Chair yoga, dance, Tai Chi, and mobility programs designed for senior communities across the greater Denver area.",
+      path: "/services/senior-communities",
       breadcrumbs: [
         { name: "Home", path: "/" },
         { name: "Services", path: "/services" },
-        { name: "Nursing Homes", path: "/services/nursing-homes" },
+        { name: "Senior Communities", path: "/services/senior-communities" },
       ],
       jsonLd: [
         {
           "@context": "https://schema.org",
           "@type": "Service",
           serviceType: "Senior Fitness Programming",
-          name: "Nursing Home Fitness Programs",
+          name: "Senior Community Fitness Programs",
           description:
-            "Weekly chair yoga, seated Zumba, and mobility programming for nursing homes and senior living communities.",
+            "Chair yoga, dance, Tai Chi, and mobility programming for senior communities.",
           areaServed: { "@type": "City", name: "Denver" },
-          url: `${SITE_URL}/services/nursing-homes`,
+          url: `${SITE_URL}/services/senior-communities`,
           provider: { "@id": BUSINESS_ID },
         },
       ],
     }),
-  component: NursingHomes,
+  component: SeniorCommunities,
 });
 
 const programs = [
@@ -41,22 +41,22 @@ const programs = [
   },
   {
     icon: Music,
-    title: "Seated Zumba",
+    title: "Seated Dance",
     body: "Big smiles, colorful scarves, and playlists that get everyone tapping.",
+  },
+  {
+    icon: Wind,
+    title: "Tai Chi",
+    body: "Slow, flowing movement that builds balance, calm, and quiet strength.",
   },
   {
     icon: Sparkles,
     title: "Mobility & Balance",
     body: "Simple daily movements to keep joints happy and falls at bay.",
   },
-  {
-    icon: Users2,
-    title: "Group Games",
-    body: "Toss, catch, and laugh — social movement that builds friendships.",
-  },
 ];
 
-function NursingHomes() {
+function SeniorCommunities() {
   return (
     <div>
       <section className="relative overflow-hidden hero-surface">
@@ -73,10 +73,9 @@ function NursingHomes() {
                   A little movement. A lot of joy.
                 </h1>
                 <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-                  Every Body Moves partners with nursing homes and senior living communities across
-                  the greater Denver area to deliver weekly fitness programming that residents
-                  genuinely look forward to. Warm music, patient instructors, and movement that
-                  meets every ability.
+                  Every Body Moves partners with senior communities across the greater Denver area
+                  to deliver recurring fitness programming that residents genuinely look forward to.
+                  Warm music, patient instructors, and movement that meets every ability.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link to="/contact" className="btn-primary">
@@ -94,7 +93,7 @@ function NursingHomes() {
                   <div className="absolute -inset-6 bg-gradient-to-tr from-orange/40 to-ink-soft/40 rounded-[3rem] blur-2xl -z-10" />
                   <Pic
                     name="nursing-homes"
-                    alt="Seniors doing seated Zumba with colorful scarves"
+                    alt="Seniors doing seated dance with colorful scarves"
                     width={1600}
                     height={1104}
                     className="rounded-[2.5rem] shadow-lift w-full aspect-[4/3] object-cover"
@@ -113,8 +112,8 @@ function NursingHomes() {
               Programs designed for how your residents actually move.
             </h2>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
-              Every session is seated-friendly, mobility-adapted, and modifiable on the fly. No one
-              gets left out. No one gets pushed too hard.
+              Every session is seated-friendly, mobility-adapted, and modifiable on the fly. Our
+              goal is for every person to feel confident, empowered, and capable.
             </p>
           </Reveal>
 
@@ -160,10 +159,9 @@ function NursingHomes() {
                 <div className="mt-8 space-y-4">
                   {[
                     "Certified, background-checked instructors — always the same friendly faces",
-                    "Fully insured with liability coverage tailored to senior care settings",
-                    "Weekly schedules that fit around meals, therapy, and rest",
+                    "Fully insured with comprehensive liability coverage",
+                    "Class schedules that fit around meals, therapy, and rest",
                     "Adaptable to memory care, assisted living, and independent living",
-                    "Simple monthly reports for your activity director & families",
                   ].map((line) => (
                     <div key={line} className="flex items-start gap-3">
                       <CheckCircle2 className="h-6 w-6 text-rust shrink-0 mt-0.5" />

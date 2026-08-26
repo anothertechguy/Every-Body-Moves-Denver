@@ -15,6 +15,7 @@ const MAX_WIDTH: Record<string, number> = {
   "nursing-homes": 1600,
   "private-coaching": 1600,
   "special-needs": 1600,
+  cassie: 1600,
 };
 
 export type PicName = keyof typeof MAX_WIDTH;

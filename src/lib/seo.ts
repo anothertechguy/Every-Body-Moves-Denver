@@ -1,4 +1,4 @@
-export const SITE_URL = "https://ebmcolorado.com";
+export const SITE_URL = "https://everybodymovesco.com";
 export const BUSINESS_ID = `${SITE_URL}/#business`;
 
 function toUrl(path: string) {

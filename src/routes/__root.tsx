@@ -20,10 +20,11 @@ const LOCAL_BUSINESS_JSONLD = {
   "@id": BUSINESS_ID,
   name: "Every Body Moves",
   description:
-    "Adaptive movement, yoga, and fitness classes for nursing homes, special-needs communities, and private clients across the greater Denver area.",
+    "Adaptive movement, yoga, and fitness classes for senior communities, special-needs communities, and private clients across the greater Denver area.",
   url: SITE_URL,
-  email: "EBMcolorado@gmail.com",
-  telephone: "+1-801-554-5563",
+  email: "cassie@everybodymovesco.com",
+  telephone: "+1-720-463-3385",
+  sameAs: ["https://www.instagram.com/everybodymovesco"],
   areaServed: {
     "@type": "City",
     name: "Denver",
@@ -37,6 +38,7 @@ const LOCAL_BUSINESS_JSONLD = {
     "Adaptive Yoga",
     "Chair Yoga",
     "Adaptive Dance",
+    "Tai Chi",
     "Senior Fitness",
     "Inclusive Fitness",
   ],
@@ -103,7 +105,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Every Body Moves brings adaptive yoga, chair fitness, and joyful movement classes to nursing homes, special-needs communities, and private homes across the greater Denver area.",
+          "Every Body Moves brings adaptive yoga, chair fitness, and joyful movement classes to senior communities, special-needs communities, and private homes across the greater Denver area.",
       },
       { name: "author", content: "Every Body Moves" },
       { property: "og:site_name", content: "Every Body Moves" },

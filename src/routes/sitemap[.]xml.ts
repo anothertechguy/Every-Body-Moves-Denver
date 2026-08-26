@@ -1,12 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "https://ebmcolorado.com";
+import { SITE_URL as BASE_URL } from "@/lib/seo";
 
 const paths = [
   { path: "/", priority: "1.0", changefreq: "weekly" as const },
   { path: "/services", priority: "0.9", changefreq: "monthly" as const },
-  { path: "/services/nursing-homes", priority: "0.8", changefreq: "monthly" as const },
+  { path: "/services/senior-communities", priority: "0.8", changefreq: "monthly" as const },
   { path: "/services/special-needs", priority: "0.8", changefreq: "monthly" as const },
   { path: "/services/private-coaching", priority: "0.8", changefreq: "monthly" as const },
   { path: "/about", priority: "0.7", changefreq: "monthly" as const },

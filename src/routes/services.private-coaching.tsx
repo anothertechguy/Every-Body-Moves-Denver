@@ -168,7 +168,7 @@ function PrivateCoaching() {
                     [
                       "03",
                       "We show up",
-                      "Weekly sessions at your home — everything we need comes with us.",
+                      "Consistent sessions at your home — everything we need comes with us.",
                     ],
                     [
                       "04",

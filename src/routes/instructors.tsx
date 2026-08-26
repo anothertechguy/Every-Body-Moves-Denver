@@ -5,8 +5,6 @@ import {
   ArrowRight,
   CalendarClock,
   HeartHandshake,
-  GraduationCap,
-  Users,
   TrendingUp,
   MapPin,
   CheckCircle2,
@@ -38,36 +36,26 @@ const perks = [
     body: "Build a week that works for your life. Pick up classes near you, morning or afternoon — we handle the booking and logistics.",
   },
   {
+    icon: MapPin,
+    title: "Classes close to home",
+    body: "We match you with partner communities near you, so you spend less time driving and more time doing what you love.",
+  },
+  {
     icon: HeartHandshake,
     title: "Work that matters",
     body: "You'll leave every class knowing you made someone's day brighter. This is the good kind of tired.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Paid training & support",
-    body: "New to adaptive or senior fitness? We'll get you confident with hands-on training, resources, and a mentor in your corner.",
-  },
-  {
-    icon: Users,
-    title: "A team that has your back",
-    body: "You're never on an island. Lean on a warm community of instructors who swap playlists, ideas, and encouragement.",
   },
   {
     icon: TrendingUp,
     title: "Room to grow",
     body: "Take on more classes, new communities, or help shape programming as we grow across the greater Denver area.",
   },
-  {
-    icon: MapPin,
-    title: "Classes close to home",
-    body: "We match you with partner communities near you, so you spend less time driving and more time doing what you love.",
-  },
 ];
 
 const lookingFor = [
   "A warm, patient presence — you meet people exactly where they are",
   "Experience teaching fitness, yoga, dance, or movement (adaptive or senior a big plus)",
-  "Current certification in your specialty and CPR (or willingness to get certified)",
+  "Current certification in your specialty and CPR",
   "Reliability and heart — communities count on you showing up with energy",
   "Comfortable adapting on the fly for wheelchairs, chairs, and every ability",
   "A clean background check (we'll help you through it)",
@@ -93,12 +81,7 @@ function Instructors() {
               </Reveal>
               <Reveal delay={80}>
                 <h1 className="mt-6 font-display text-5xl md:text-6xl text-ink text-balance">
-                  Teach movement that{" "}
-                  <span className="relative inline-block">
-                    <span className="relative z-10">changes days</span>
-                    <span className="absolute inset-x-0 bottom-1.5 h-3 bg-orange/40 -z-0 rounded-full" />
-                  </span>
-                  .
+                  Teach movement that <span className="hl-marker">changes days.</span>
                 </h1>
               </Reveal>
               <Reveal delay={160}>
@@ -157,7 +140,7 @@ function Instructors() {
             </div>
           </Reveal>
 
-          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="mt-14 grid sm:grid-cols-2 gap-6">
             {perks.map((p, i) => (
               <Reveal key={p.title} delay={i * 80}>
                 <div className="soft-card p-8 h-full transition-transform duration-500 hover:-translate-y-2">
@@ -185,8 +168,8 @@ function Instructors() {
                 Certifications matter. Heart matters more.
               </h2>
               <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
-                You don't need decades of experience — you need the right spirit and a willingness
-                to learn. If most of these sound like you, we should talk.
+                We work with experienced instructors who bring the right spirit to every class. If
+                most of these sound like you, we should talk.
               </p>
               <div className="mt-8 grid md:grid-cols-2 gap-4">
                 {lookingFor.map((l) => (
@@ -217,11 +200,7 @@ function Instructors() {
                 reach out to set up a friendly chat and a demo class.
               </p>
               <div className="mt-8 space-y-3">
-                {[
-                  "No cover letter required",
-                  "We reply to every applicant",
-                  "Paid, hands-on onboarding",
-                ].map((l) => (
+                {["No cover letter required", "We reply to every applicant"].map((l) => (
                   <div key={l} className="flex items-center gap-3 text-foreground/90">
                     <CheckCircle2 className="h-5 w-5 text-orange" /> {l}
                   </div>
@@ -274,7 +253,8 @@ function Instructors() {
                             Choose one…
                           </option>
                           <option>Adaptive / chair yoga</option>
-                          <option>Seated Zumba & dance</option>
+                          <option>Seated dance</option>
+                          <option>Tai Chi</option>
                           <option>Special-needs fitness</option>
                           <option>Private / in-home coaching</option>
                           <option>Open to anything</option>

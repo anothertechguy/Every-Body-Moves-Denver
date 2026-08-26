@@ -68,12 +68,7 @@ function WorkWithUs() {
               </Reveal>
               <Reveal delay={80}>
                 <h1 className="mt-6 font-display text-5xl md:text-6xl text-ink text-balance">
-                  Good movement is better with{" "}
-                  <span className="relative inline-block">
-                    <span className="relative z-10">good neighbors</span>
-                    <span className="absolute inset-x-0 bottom-1.5 h-3 bg-orange/40 -z-0 rounded-full" />
-                  </span>
-                  .
+                  Good movement is better with <span className="hl-marker">good neighbors.</span>
                 </h1>
               </Reveal>
               <Reveal delay={160}>
@@ -159,10 +154,10 @@ function WorkWithUs() {
                 <div className="text-sm uppercase tracking-[0.22em] text-rust font-semibold">
                   Partner spotlights
                 </div>
-                <blockquote className="mt-4 font-display text-3xl md:text-4xl text-ink text-balance max-w-3xl mx-auto leading-snug">
-                  "The little extras — a box of something sweet, a set of fresh scarves — are what
-                  residents talk about all week."
-                </blockquote>
+                <p className="mt-4 font-display text-3xl md:text-4xl font-bold text-ink text-balance max-w-3xl mx-auto leading-snug">
+                  The little extras — a box of something sweet, a set of fresh scarves — are what
+                  residents talk about all week.
+                </p>
                 <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
                   From neighborhood bakeries to family-run shops, our partners help turn an ordinary
                   class into something residents look forward to.

@@ -9,7 +9,7 @@ export const Route = createFileRoute("/services/special-needs")({
     seo({
       title: "Adaptive Fitness for Special Needs — Every Body Moves",
       description:
-        "Sensory-friendly, adaptive fitness programs for autistic kids, ADHD, and adults of every ability across the greater Denver area.",
+        "Sensory-friendly, adaptive fitness programs for children and adults with special needs across the greater Denver area.",
       path: "/services/special-needs",
       breadcrumbs: [
         { name: "Home", path: "/" },
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/services/special-needs")({
           serviceType: "Adaptive Fitness",
           name: "Adaptive Fitness for Special Needs",
           description:
-            "Sensory-friendly, adaptive fitness sessions for autistic kids, ADHD, and adults of every ability.",
+            "Sensory-friendly, adaptive fitness sessions for children and adults with special needs.",
           areaServed: { "@type": "City", name: "Denver" },
           url: `${SITE_URL}/services/special-needs`,
           provider: { "@id": BUSINESS_ID },
@@ -51,8 +51,8 @@ const features = [
   },
   {
     icon: Shield,
-    title: "Safe & Certified",
-    body: "Trained in adaptive fitness, background-checked, fully insured.",
+    title: "Safe & Experienced",
+    body: "Experienced in adaptive fitness, background-checked, fully insured.",
   },
 ];
 
@@ -141,8 +141,8 @@ function SpecialNeeds() {
               <div className="mt-8 grid md:grid-cols-2 gap-4">
                 {[
                   "Consistent structure — same warm-up, same cool-down, every time",
-                  "Visual schedules and quiet transitions between activities",
-                  "One-on-one or small groups (2–4), whatever fits best",
+                  "Calm, quiet transitions between activities",
+                  "One-on-one, small groups, or larger classes — whatever fits your community best",
                   "Collaboration with parents, therapists, and support teams",
                   "Movement games, obstacle courses, yoga, and gentle strength",
                   "Zero pressure to perform — full permission to explore",

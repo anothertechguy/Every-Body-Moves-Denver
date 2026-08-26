@@ -9,7 +9,7 @@ export const Route = createFileRoute("/services/")({
     seo({
       title: "Services — Every Body Moves",
       description:
-        "Chair yoga & Zumba for nursing homes, adaptive fitness for special needs, and private in-home coaching across the greater Denver area.",
+        "Chair yoga, dance & Tai Chi for senior communities, adaptive fitness for special needs, and private in-home coaching across the greater Denver area.",
       path: "/services",
       breadcrumbs: [
         { name: "Home", path: "/" },
@@ -21,12 +21,12 @@ export const Route = createFileRoute("/services/")({
 
 const cards = [
   {
-    to: "/services/nursing-homes",
-    title: "Nursing Homes",
+    to: "/services/senior-communities",
+    title: "Senior Communities",
     icon: Heart,
     img: "nursing-homes" as const,
-    tag: "Senior Communities",
-    body: "Chair yoga, seated Zumba, gentle strength, and mobility work — designed to keep residents moving, laughing, and connecting week after week.",
+    tag: "Senior Living",
+    body: "Chair yoga, seated dance, Tai Chi, and mobility work — designed to keep residents moving, laughing, and connecting class after class.",
   },
   {
     to: "/services/special-needs",
@@ -34,7 +34,7 @@ const cards = [
     icon: Users,
     img: "special-needs" as const,
     tag: "All Abilities",
-    body: "Sensory-aware, patient, playful fitness for autistic kids, ADHD, and adults of every ability. We build confidence one small win at a time.",
+    body: "Sensory-aware, patient, playful fitness for children and adults with special needs. We build confidence one small win at a time.",
   },
   {
     to: "/services/private-coaching",

@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
     seo({
       title: "Every Body Moves — Adaptive Movement Classes in the Greater Denver Area",
       description:
-        "Chair yoga, seated Zumba, and adaptive fitness for nursing homes, special-needs communities, and private homes across the greater Denver area.",
+        "Chair yoga, dance, Tai Chi, and adaptive fitness for senior communities, special-needs communities, and private homes across the greater Denver area.",
       path: "/",
     }),
   component: Home,
@@ -25,9 +25,9 @@ export const Route = createFileRoute("/")({
 
 const services = [
   {
-    to: "/services/nursing-homes",
-    title: "Nursing Homes",
-    body: "Weekly chair yoga, seated Zumba, and mobility programs that keep residents smiling, stretching, and connected.",
+    to: "/services/senior-communities",
+    title: "Senior Communities",
+    body: "Chair yoga, dance, Tai Chi, and mobility programs that keep residents smiling, stretching, and connected.",
     img: "nursing-homes" as const,
     icon: Heart,
     tint: "from-orange/70 to-sand/70",
@@ -35,7 +35,7 @@ const services = [
   {
     to: "/services/special-needs",
     title: "Special Needs",
-    body: "Adaptive fitness for autistic kids, ADHD, and every ability — patient coaches, sensory-friendly sessions.",
+    body: "Adaptive fitness for children and adults with special needs — patient coaches, sensory-friendly sessions.",
     img: "special-needs" as const,
     icon: Users,
     tint: "from-ink-soft/70 to-sky/70",
@@ -70,19 +70,15 @@ function Home() {
               </Reveal>
               <Reveal delay={80}>
                 <h1 className="mt-6 font-display text-5xl md:text-6xl lg:text-7xl text-ink leading-[1.03] text-balance">
-                  Movement that meets{" "}
-                  <span className="relative inline-block">
-                    <span className="relative z-10 italic">every body</span>
-                    <span className="absolute inset-x-0 bottom-2 h-3 bg-orange/50 -z-0 rounded-full" />
-                  </span>{" "}
-                  where they are.
+                  Movement that meets <span className="hl-marker italic">every body</span> where
+                  they are.
                 </h1>
               </Reveal>
               <Reveal delay={160}>
                 <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-                  From chair yoga in nursing homes to adaptive fitness for kids of every ability,
-                  Every Body Moves brings gentle, joyful, expertly-guided activity to the
-                  communities that need it most.
+                  From chair yoga in senior communities to adaptive fitness for children and adults
+                  of every ability, Every Body Moves brings gentle, joyful, expertly-guided activity
+                  to the communities that need it most.
                 </p>
               </Reveal>
               <Reveal delay={240}>
@@ -98,12 +94,12 @@ function Home() {
               <Reveal delay={320}>
                 <div className="mt-10 flex items-center gap-6 text-sm text-muted-foreground">
                   <div>
-                    <span className="font-display text-2xl text-ink">Weekly</span>
+                    <span className="font-display text-2xl text-ink">Recurring</span>
                     <div>classes residents love</div>
                   </div>
                   <div className="h-8 w-px bg-border" />
                   <div>
-                    <span className="font-display text-2xl text-ink">Seated</span>
+                    <span className="font-display text-2xl text-ink">Adapted</span>
                     <div>wheelchair & chair friendly</div>
                   </div>
                   <div className="h-8 w-px bg-border" />
@@ -173,22 +169,22 @@ function Home() {
                 </h2>
                 <p className="mt-6 text-lg text-muted-foreground">
                   Every Body Moves was built on a simple idea: movement is medicine, and it should
-                  feel like a gift — not a chore. We partner with nursing homes, families, and care
-                  teams across the greater Denver area to design fitness experiences that are warm,
-                  safe, and genuinely fun.
+                  feel like a gift — not a chore. We partner with senior communities, families, and
+                  care teams across the greater Denver area to design fitness experiences that are
+                  warm, safe, and genuinely fun.
                 </p>
                 <p className="mt-4 text-lg text-muted-foreground">
                   Our certified instructors show up with patience, playlists, and plans built around
-                  the person in front of them — not the other way around. Whether it's Zumba scarves
+                  the person in front of them — not the other way around. Whether it's dance scarves
                   in a common room or a first push-up in a living room, we're here for the little
                   wins that add up to a bigger life.
                 </p>
 
                 <div className="mt-8 grid sm:grid-cols-3 gap-5">
                   {[
-                    { k: "Warm", v: "Community-first, human-first" },
+                    { k: "Warm", v: "Community-first, individual-focused" },
                     { k: "Adaptive", v: "Every ability, every age" },
-                    { k: "Consistent", v: "Reliable weekly programming" },
+                    { k: "Consistent", v: "Reliable recurring programming" },
                   ].map((c, i) => (
                     <Reveal key={c.k} delay={100 + i * 90}>
                       <div className="soft-card p-5">
@@ -280,10 +276,9 @@ function Home() {
                 <div className="mt-8 space-y-4">
                   {[
                     "Fully insured, background-checked, certified instructors",
-                    "Custom weekly schedules tailored to your community",
+                    "Custom schedules tailored to your community",
                     "Sensory-friendly and mobility-adapted programming",
                     "Music, props, and energy included — always",
-                    "Progress reports and family-friendly updates",
                   ].map((line) => (
                     <div key={line} className="flex items-start gap-3">
                       <CheckCircle2 className="h-6 w-6 text-rust shrink-0 mt-0.5" />
@@ -304,7 +299,7 @@ function Home() {
                 {[
                   { n: "01", t: "Say hello", d: "We visit, listen, and learn your community." },
                   { n: "02", t: "Design", d: "We draft a program tuned to abilities & goals." },
-                  { n: "03", t: "Show up", d: "Consistent weekly sessions, full of energy." },
+                  { n: "03", t: "Show up", d: "Consistent classes tailored to your community." },
                   { n: "04", t: "Grow", d: "We adjust as your community moves and thrives." },
                 ].map((step, i) => (
                   <Reveal key={step.n} delay={i * 90}>

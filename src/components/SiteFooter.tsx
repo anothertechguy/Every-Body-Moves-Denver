@@ -1,10 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { BrandMark } from "./Logo";
 
 const socials = [
-  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/ebmcolorado" },
-  { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/ebmcolorado" },
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/everybodymovesco" },
 ];
 
 export function SiteFooter() {
@@ -24,8 +23,8 @@ export function SiteFooter() {
             </div>
             <p className="mt-5 max-w-md text-cream/70">
               Adaptive yoga, dance, and gentle movement that help every person feel capable and
-              confident — brought to nursing homes, families, and communities across the greater
-              Denver area.
+              confident — brought to senior communities, families, and communities across the
+              greater Denver area.
             </p>
             <div className="mt-6 flex items-center gap-3">
               {socials.map(({ icon: Icon, label, href }) => (
@@ -55,10 +54,10 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
-                  to="/services/nursing-homes"
+                  to="/services/senior-communities"
                   className="hover:text-marigold transition-colors"
                 >
-                  Nursing Homes
+                  Senior Communities
                 </Link>
               </li>
               <li>
@@ -107,20 +106,20 @@ export function SiteFooter() {
             <ul className="space-y-3 text-cream/70">
               <li>
                 <a
-                  href="mailto:EBMcolorado@gmail.com"
+                  href="mailto:cassie@everybodymovesco.com"
                   className="flex items-start gap-2 hover:text-marigold transition-colors"
                 >
                   <Mail className="h-4 w-4 mt-1 text-orange shrink-0" />
-                  <span>EBMcolorado@gmail.com</span>
+                  <span>cassie@everybodymovesco.com</span>
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+18015545563"
+                  href="tel:+17204633385"
                   className="flex items-start gap-2 hover:text-marigold transition-colors"
                 >
                   <Phone className="h-4 w-4 mt-1 text-orange shrink-0" />
-                  <span>(801) 554-5563</span>
+                  <span>(720) 463-3385</span>
                 </a>
               </li>
               <li className="flex items-start gap-2">
