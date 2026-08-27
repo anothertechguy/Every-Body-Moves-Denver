@@ -24,7 +24,10 @@ const LOCAL_BUSINESS_JSONLD = {
   url: SITE_URL,
   email: "cassie@everybodymovesco.com",
   telephone: "+1-720-463-3385",
-  sameAs: ["https://www.instagram.com/everybodymovesco"],
+  sameAs: [
+    "https://www.instagram.com/everybodymovesco",
+    "https://www.linkedin.com/company/everybodymovesco/",
+  ],
   areaServed: {
     "@type": "City",
     name: "Denver",

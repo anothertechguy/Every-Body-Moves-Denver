@@ -1,9 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 import { BrandMark } from "./Logo";
 
 const socials = [
   { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/everybodymovesco" },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/everybodymovesco/",
+  },
 ];
 
 export function SiteFooter() {

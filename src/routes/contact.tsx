@@ -136,14 +136,23 @@ function Contact() {
                       <span className="block text-sm text-muted-foreground">Every Body Moves</span>
                     </span>
                   </li>
-                  <li className="flex items-center gap-3 text-ink">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-orange to-marigold text-white shadow-soft shrink-0">
-                      <LinkedinIcon className="h-4 w-4" />
-                    </span>
-                    <span>
-                      <span className="block font-semibold">LinkedIn</span>
-                      <span className="block text-sm text-muted-foreground">Every Body Moves</span>
-                    </span>
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/company/everybodymovesco/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-3 text-ink hover:text-rust transition-colors"
+                    >
+                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-orange to-marigold text-white shadow-soft shrink-0">
+                        <LinkedinIcon className="h-4 w-4" />
+                      </span>
+                      <span>
+                        <span className="block font-semibold">LinkedIn</span>
+                        <span className="block text-sm text-muted-foreground">
+                          Every Body Moves
+                        </span>
+                      </span>
+                    </a>
                   </li>
                 </ul>
               </div>
