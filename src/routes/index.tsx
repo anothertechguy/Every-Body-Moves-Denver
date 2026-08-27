@@ -92,21 +92,22 @@ function Home() {
                 </div>
               </Reveal>
               <Reveal delay={320}>
-                <div className="mt-10 flex items-center gap-6 text-sm text-muted-foreground">
-                  <div>
-                    <span className="font-display text-2xl text-ink">Recurring</span>
-                    <div>classes residents love</div>
-                  </div>
-                  <div className="h-8 w-px bg-border" />
-                  <div>
-                    <span className="font-display text-2xl text-ink">Adapted</span>
-                    <div>wheelchair & chair friendly</div>
-                  </div>
-                  <div className="h-8 w-px bg-border" />
-                  <div>
-                    <span className="font-display text-2xl text-ink">All</span>
-                    <div>ages & abilities</div>
-                  </div>
+                {/* Grid (not flex) so the three stats always share the available
+                    width and can never overflow, whatever length the labels are. */}
+                <div className="mt-10 grid grid-cols-3 text-sm text-muted-foreground max-w-lg">
+                  {[
+                    { k: "Recurring", v: "classes residents love" },
+                    { k: "Adapted", v: "wheelchair & chair friendly" },
+                    { k: "All", v: "ages & abilities" },
+                  ].map((s, i) => (
+                    <div
+                      key={s.k}
+                      className={i > 0 ? "pl-3 sm:pl-5 border-l border-border" : "pr-3"}
+                    >
+                      <span className="block font-display text-xl sm:text-2xl text-ink">{s.k}</span>
+                      <span className="block mt-0.5 text-xs sm:text-sm">{s.v}</span>
+                    </div>
+                  ))}
                 </div>
               </Reveal>
             </div>

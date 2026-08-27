@@ -93,7 +93,23 @@ function Instructors() {
               </Reveal>
               <Reveal delay={240}>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <a href="#apply" className="btn-accent">
+                  <a
+                    href="#apply"
+                    className="btn-accent"
+                    onClick={(e) => {
+                      // Scroll explicitly: the router intercepts bare hash links,
+                      // clearing the hash without moving the page.
+                      const target = document.getElementById("apply");
+                      if (!target) return;
+                      e.preventDefault();
+                      target.scrollIntoView({
+                        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+                          ? "auto"
+                          : "smooth",
+                        block: "start",
+                      });
+                    }}
+                  >
                     Apply now <ArrowRight className="h-4 w-4" />
                   </a>
                   <Link to="/about" className="btn-ghost">

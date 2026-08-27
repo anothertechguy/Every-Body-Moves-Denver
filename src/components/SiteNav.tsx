@@ -25,7 +25,20 @@ export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  // Only mouse/trackpad devices get hover-to-open. On touch screens wide enough
+  // for the desktop nav (iPad landscape), a tap fires a synthetic mouseenter
+  // followed by the click, which would open then instantly re-close the menu —
+  // there, tap-to-toggle is the only handler.
+  const [canHover, setCanHover] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const sync = () => setCanHover(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -60,8 +73,14 @@ export function SiteNav() {
 
             <div
               className="relative"
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
+              onMouseEnter={canHover ? () => setServicesOpen(true) : undefined}
+              onMouseLeave={canHover ? () => setServicesOpen(false) : undefined}
+              onBlur={(e) => {
+                // Close when keyboard focus leaves the menu entirely.
+                if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+                  setServicesOpen(false);
+                }
+              }}
             >
               <button
                 className="nav-link flex items-center gap-1"
@@ -69,6 +88,7 @@ export function SiteNav() {
                 aria-expanded={servicesOpen}
                 aria-haspopup="menu"
                 onClick={() => setServicesOpen((v) => !v)}
+                onFocus={canHover ? () => setServicesOpen(true) : undefined}
               >
                 Services{" "}
                 <ChevronDown
