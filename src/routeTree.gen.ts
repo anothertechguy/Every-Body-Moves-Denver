@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkWithUsRouteImport } from './routes/work-with-us'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as InstructorsRouteImport } from './routes/instructors'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -24,11 +23,6 @@ import { Route as ServicesPrivateCoachingRouteImport } from './routes/services.p
 const WorkWithUsRoute = WorkWithUsRouteImport.update({
   id: '/work-with-us',
   path: '/work-with-us',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -84,7 +78,6 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/instructors': typeof InstructorsRoute
   '/services': typeof ServicesRouteWithChildren
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/work-with-us': typeof WorkWithUsRoute
   '/services/private-coaching': typeof ServicesPrivateCoachingRoute
   '/services/senior-communities': typeof ServicesSeniorCommunitiesRoute
@@ -96,7 +89,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/instructors': typeof InstructorsRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/work-with-us': typeof WorkWithUsRoute
   '/services/private-coaching': typeof ServicesPrivateCoachingRoute
   '/services/senior-communities': typeof ServicesSeniorCommunitiesRoute
@@ -110,7 +102,6 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/instructors': typeof InstructorsRoute
   '/services': typeof ServicesRouteWithChildren
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/work-with-us': typeof WorkWithUsRoute
   '/services/private-coaching': typeof ServicesPrivateCoachingRoute
   '/services/senior-communities': typeof ServicesSeniorCommunitiesRoute
@@ -125,7 +116,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/instructors'
     | '/services'
-    | '/sitemap.xml'
     | '/work-with-us'
     | '/services/private-coaching'
     | '/services/senior-communities'
@@ -137,7 +127,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/instructors'
-    | '/sitemap.xml'
     | '/work-with-us'
     | '/services/private-coaching'
     | '/services/senior-communities'
@@ -150,7 +139,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/instructors'
     | '/services'
-    | '/sitemap.xml'
     | '/work-with-us'
     | '/services/private-coaching'
     | '/services/senior-communities'
@@ -164,7 +152,6 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   InstructorsRoute: typeof InstructorsRoute
   ServicesRoute: typeof ServicesRouteWithChildren
-  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WorkWithUsRoute: typeof WorkWithUsRoute
 }
 
@@ -175,13 +162,6 @@ declare module '@tanstack/react-router' {
       path: '/work-with-us'
       fullPath: '/work-with-us'
       preLoaderRoute: typeof WorkWithUsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -274,7 +254,6 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   InstructorsRoute: InstructorsRoute,
   ServicesRoute: ServicesRouteWithChildren,
-  SitemapDotxmlRoute: SitemapDotxmlRoute,
   WorkWithUsRoute: WorkWithUsRoute,
 }
 export const routeTree = rootRouteImport

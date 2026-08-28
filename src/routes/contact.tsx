@@ -12,6 +12,8 @@ import {
   Linkedin as LinkedinIcon,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { HoneyPot, FormError } from "@/components/FormBits";
+import { submitForm } from "@/lib/submit-form";
 
 export const Route = createFileRoute("/contact")({
   head: () =>
@@ -30,6 +32,10 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  // Used to spot bot submissions completed impossibly fast.
+  const [startedAt] = useState(() => Date.now());
 
   return (
     <div>
@@ -177,11 +183,19 @@ function Contact() {
             <Reveal delay={80}>
               <form
                 className="soft-card p-8 lg:p-10 space-y-5"
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault();
-                  setSent(true);
+                  if (sending) return;
+                  const form = e.currentTarget;
+                  setError(null);
+                  setSending(true);
+                  const result = await submitForm(form, "contact", startedAt);
+                  setSending(false);
+                  if (result.ok) setSent(true);
+                  else setError(result.message);
                 }}
               >
+                <HoneyPot />
                 {sent ? (
                   <div className="py-12 text-center">
                     <div className="mx-auto h-14 w-14 rounded-full bg-gradient-to-br from-ink to-ink-soft text-cream flex items-center justify-center">
@@ -232,8 +246,14 @@ function Contact() {
                         placeholder="Where are you located? What kind of programming are you thinking about?"
                       />
                     </div>
-                    <button type="submit" className="btn-primary w-full justify-center">
-                      Send message <Send className="h-4 w-4" />
+                    {error && <FormError message={error} />}
+                    <button
+                      type="submit"
+                      disabled={sending}
+                      className="btn-primary w-full justify-center disabled:opacity-70"
+                    >
+                      {sending ? "Sending…" : "Send message"}
+                      <Send className="h-4 w-4" />
                     </button>
                   </>
                 )}

@@ -14,8 +14,16 @@ for (const file of readdirSync(SRC).filter((f) => f.endsWith(".jpg"))) {
   const input = sharp(join(SRC, file));
   const { width: srcW } = await input.metadata();
   for (const w of WIDTHS.filter((w) => w <= srcW)) {
-    await input.clone().resize(w).avif({ quality: 55 }).toFile(join(OUT, `${name}-${w}.avif`));
+    await input
+      .clone()
+      .resize(w)
+      .avif({ quality: 55 })
+      .toFile(join(OUT, `${name}-${w}.avif`));
   }
-  await input.clone().resize(Math.min(1600, srcW)).jpeg({ quality: 74, mozjpeg: true }).toFile(join(OUT, `${name}.jpg`));
+  await input
+    .clone()
+    .resize(Math.min(1600, srcW))
+    .jpeg({ quality: 74, mozjpeg: true })
+    .toFile(join(OUT, `${name}.jpg`));
   console.log("done:", name);
 }

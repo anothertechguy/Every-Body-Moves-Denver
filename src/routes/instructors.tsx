@@ -12,6 +12,8 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Reveal, Parallax } from "@/components/Reveal";
+import { HoneyPot, FormError } from "@/components/FormBits";
+import { submitForm } from "@/lib/submit-form";
 import { Pic } from "@/components/Pic";
 
 export const Route = createFileRoute("/instructors")({
@@ -63,6 +65,10 @@ const lookingFor = [
 
 function Instructors() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  // Used to spot bot submissions completed impossibly fast.
+  const [startedAt] = useState(() => Date.now());
 
   return (
     <div>
@@ -229,11 +235,19 @@ function Instructors() {
             <Reveal delay={80}>
               <form
                 className="soft-card p-8 lg:p-10 space-y-5"
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault();
-                  setSent(true);
+                  if (sending) return;
+                  const form = e.currentTarget;
+                  setError(null);
+                  setSending(true);
+                  const result = await submitForm(form, "instructor", startedAt);
+                  setSending(false);
+                  if (result.ok) setSent(true);
+                  else setError(result.message);
                 }}
               >
+                <HoneyPot />
                 {sent ? (
                   <div className="py-12 text-center">
                     <div className="mx-auto h-14 w-14 rounded-full bg-gradient-to-br from-orange to-marigold text-white flex items-center justify-center shadow-soft">
@@ -300,8 +314,14 @@ function Instructors() {
                         placeholder="Tell us about your certifications (yoga, group fitness, CPR…) and any experience with seniors or adaptive fitness."
                       />
                     </div>
-                    <button type="submit" className="btn-primary w-full justify-center">
-                      Submit application <Send className="h-4 w-4" />
+                    {error && <FormError message={error} />}
+                    <button
+                      type="submit"
+                      disabled={sending}
+                      className="btn-primary w-full justify-center disabled:opacity-70"
+                    >
+                      {sending ? "Sending…" : "Submit application"}
+                      <Send className="h-4 w-4" />
                     </button>
                     <p className="text-xs text-muted-foreground text-center">
                       By applying you agree to be contacted about opportunities at Every Body Moves.
