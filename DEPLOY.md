@@ -38,7 +38,7 @@ MX records and root SPF are never touched, so **her existing email cannot break*
 | ---------------------- | --------------------------------------------- |
 | Build command          | `PAGES_BUILD=true npm run build`              |
 | Build output directory | `dist/client`                                 |
-| Node version           | `20` or newer (env var `NODE_VERSION` = `20`) |
+| Node version           | `22` (env var `NODE_VERSION` = `22`; react-start requires >=22.12) |
 
 `PAGES_BUILD=true` produces the fully prerendered static site. The
 `functions/` folder is picked up automatically for `/api/contact`.
