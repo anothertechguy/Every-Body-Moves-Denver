@@ -15,9 +15,9 @@ import { Pic } from "@/components/Pic";
 export const Route = createFileRoute("/")({
   head: () =>
     seo({
-      title: "Every Body Moves — Adaptive Movement Classes in the Greater Denver Area",
+      title: "Every Body Moves — Adaptive Movement | Denver & Utah Valley",
       description:
-        "Chair yoga, dance, Tai Chi, and adaptive fitness for senior communities, special-needs communities, and private homes across the greater Denver area.",
+        "Chair yoga, dance, Tai Chi, and adaptive fitness for senior communities, special needs, and private homes across greater Denver & Utah Valley.",
       path: "/",
     }),
   component: Home,
@@ -65,7 +65,7 @@ function Home() {
               <Reveal>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/70 text-sm text-ink shadow-soft">
                   <Sparkles className="h-4 w-4 text-orange" />
-                  Adaptive movement · Greater Denver
+                  Adaptive movement · Greater Denver & Utah Valley
                 </div>
               </Reveal>
               <Reveal delay={80}>
@@ -171,8 +171,8 @@ function Home() {
                 <p className="mt-6 text-lg text-muted-foreground">
                   Every Body Moves was built on a simple idea: movement is medicine, and it should
                   feel like a gift — not a chore. We partner with senior communities, families, and
-                  care teams across the greater Denver area to design fitness experiences that are
-                  warm, safe, and genuinely fun.
+                  care teams across the greater Denver and Utah Valley areas to design fitness
+                  experiences that are warm, safe, and genuinely fun.
                 </p>
                 <p className="mt-4 text-lg text-muted-foreground">
                   Our certified instructors show up with patience, playlists, and plans built around

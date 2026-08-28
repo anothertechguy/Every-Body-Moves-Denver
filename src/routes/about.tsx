@@ -9,7 +9,7 @@ export const Route = createFileRoute("/about")({
     seo({
       title: "About — Every Body Moves",
       description:
-        "Every Body Moves brings gentle, joyful, adaptive fitness to Denver-area senior communities, families, and communities of every ability.",
+        "Every Body Moves brings gentle, joyful, adaptive fitness to senior communities, families, and communities of every ability across greater Denver & Utah Valley.",
       path: "/about",
       breadcrumbs: [
         { name: "Home", path: "/" },
@@ -62,15 +62,16 @@ function About() {
                 Colorado-grown. Community-first.
               </h2>
               <p className="mt-5 text-lg text-muted-foreground">
-                We're a small team of certified fitness professionals across the greater Denver area
-                with backgrounds in senior fitness, adaptive coaching, yoga, and dance. What ties us
-                together is a stubborn belief: fitness should belong to everyone.
+                We're a small team of certified fitness professionals across the greater Denver and
+                Utah Valley areas with backgrounds in senior fitness, adaptive coaching, yoga, and
+                dance. What ties us together is a stubborn belief: fitness should belong to
+                everyone.
               </p>
               <p className="mt-4 text-lg text-muted-foreground">
                 We started in a handful of senior communities and grew — one activity director, one
                 family, one client at a time — because word travels when something actually works.
-                Today we serve communities across the greater Denver metro, and we're still growing
-                carefully, one relationship at a time.
+                Today we serve communities across the greater Denver and Utah Valley areas, and
+                we're still growing carefully, one relationship at a time.
               </p>
             </div>
           </Reveal>
@@ -107,8 +108,8 @@ function About() {
                     joy of moving.
                   </p>
                   <p className="mt-4 text-lg text-muted-foreground">
-                    You'll find her leading classes across the greater Denver area — music on,
-                    scarves out, cheering on every small win in the room.
+                    You'll find her leading classes across the greater Denver and Utah Valley areas
+                    — music on, scarves out, cheering on every small win in the room.
                   </p>
                   <div className="mt-6 font-semibold text-ink">
                     Cassie

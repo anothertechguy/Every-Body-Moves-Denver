@@ -9,7 +9,7 @@ export const Route = createFileRoute("/services/private-coaching")({
     seo({
       title: "Private & In-Home Coaching — Every Body Moves",
       description:
-        "One-on-one personal training and wellness coaching in your home, backyard, or building's gym anywhere across the greater Denver area.",
+        "One-on-one personal training and wellness coaching in your home, backyard, or building's gym anywhere across the greater Denver and Utah Valley areas.",
       path: "/services/private-coaching",
       breadcrumbs: [
         { name: "Home", path: "/" },
@@ -24,7 +24,10 @@ export const Route = createFileRoute("/services/private-coaching")({
           name: "Private & In-Home Coaching",
           description:
             "One-on-one personal training and wellness coaching delivered in the client's home.",
-          areaServed: { "@type": "City", name: "Denver" },
+          areaServed: [
+            { "@type": "City", name: "Denver" },
+            { "@type": "Place", name: "Utah Valley" },
+          ],
           url: `${SITE_URL}/services/private-coaching`,
           provider: { "@id": BUSINESS_ID },
         },

@@ -17,7 +17,7 @@ export const Route = createFileRoute("/work-with-us")({
     seo({
       title: "Work With Us — Every Body Moves",
       description:
-        "Local businesses and community partners help make Every Body Moves classes special — sponsorships, treats, and support across the greater Denver area.",
+        "Local businesses and partners help make Every Body Moves classes special — sponsorships, treats, and support across greater Denver & Utah Valley.",
       path: "/work-with-us",
       breadcrumbs: [
         { name: "Home", path: "/" },

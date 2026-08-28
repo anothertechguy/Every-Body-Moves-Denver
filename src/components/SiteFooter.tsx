@@ -1,9 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Facebook, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 import { BrandMark } from "./Logo";
 
 const socials = [
   { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/everybodymovesco" },
+  {
+    icon: Facebook,
+    label: "Facebook",
+    href: "https://www.facebook.com/people/Every-Body-Moves/61593435957941/",
+  },
   {
     icon: Linkedin,
     label: "LinkedIn",
@@ -29,7 +34,7 @@ export function SiteFooter() {
             <p className="mt-5 max-w-md text-cream/70">
               Adaptive yoga, dance, and gentle movement that help every person feel capable and
               confident — brought to senior communities, families, and communities across the
-              greater Denver area.
+              greater Denver and Utah Valley areas.
             </p>
             <div className="mt-6 flex items-center gap-3">
               {socials.map(({ icon: Icon, label, href }) => (
@@ -129,7 +134,7 @@ export function SiteFooter() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-1 text-orange shrink-0" />
-                <span>Serving the greater Denver area</span>
+                <span>Serving the greater Denver and Utah Valley areas</span>
               </li>
             </ul>
           </div>

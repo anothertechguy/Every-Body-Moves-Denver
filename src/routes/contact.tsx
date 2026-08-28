@@ -18,7 +18,7 @@ export const Route = createFileRoute("/contact")({
     seo({
       title: "Contact — Every Body Moves",
       description:
-        "Get in touch with Every Body Moves about programming for your community, family, or private coaching across the greater Denver area.",
+        "Get in touch with Every Body Moves about programming for your community, family, or private coaching across the greater Denver and Utah Valley areas.",
       path: "/contact",
       breadcrumbs: [
         { name: "Home", path: "/" },
@@ -63,7 +63,12 @@ function Contact() {
                 href: "mailto:cassie@everybodymovesco.com",
               },
               { icon: Phone, label: "Phone", value: "(720) 463-3385", href: "tel:+17204633385" },
-              { icon: MapPin, label: "Serving", value: "The greater Denver area", href: undefined },
+              {
+                icon: MapPin,
+                label: "Serving",
+                value: "The greater Denver & Utah Valley areas",
+                href: undefined,
+              },
             ].map((c) => {
               const inner = (
                 <div className="soft-card p-6 flex items-start gap-4 h-full transition-transform duration-300 hover:-translate-y-1">
@@ -127,14 +132,23 @@ function Contact() {
                       </span>
                     </a>
                   </li>
-                  <li className="flex items-center gap-3 text-ink">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-orange to-marigold text-white shadow-soft shrink-0">
-                      <FacebookIcon className="h-4 w-4" />
-                    </span>
-                    <span>
-                      <span className="block font-semibold">Facebook</span>
-                      <span className="block text-sm text-muted-foreground">Every Body Moves</span>
-                    </span>
+                  <li>
+                    <a
+                      href="https://www.facebook.com/people/Every-Body-Moves/61593435957941/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-3 text-ink hover:text-rust transition-colors"
+                    >
+                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-orange to-marigold text-white shadow-soft shrink-0">
+                        <FacebookIcon className="h-4 w-4" />
+                      </span>
+                      <span>
+                        <span className="block font-semibold">Facebook</span>
+                        <span className="block text-sm text-muted-foreground">
+                          Every Body Moves
+                        </span>
+                      </span>
+                    </a>
                   </li>
                   <li>
                     <a

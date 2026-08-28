@@ -9,7 +9,7 @@ export const Route = createFileRoute("/services/senior-communities")({
     seo({
       title: "Senior Community Fitness Programs — Every Body Moves",
       description:
-        "Chair yoga, dance, Tai Chi, and mobility programs designed for senior communities across the greater Denver area.",
+        "Chair yoga, dance, Tai Chi, and mobility programs designed for senior communities across the greater Denver and Utah Valley areas.",
       path: "/services/senior-communities",
       breadcrumbs: [
         { name: "Home", path: "/" },
@@ -24,7 +24,10 @@ export const Route = createFileRoute("/services/senior-communities")({
           name: "Senior Community Fitness Programs",
           description:
             "Chair yoga, dance, Tai Chi, and mobility programming for senior communities.",
-          areaServed: { "@type": "City", name: "Denver" },
+          areaServed: [
+            { "@type": "City", name: "Denver" },
+            { "@type": "Place", name: "Utah Valley" },
+          ],
           url: `${SITE_URL}/services/senior-communities`,
           provider: { "@id": BUSINESS_ID },
         },
@@ -73,9 +76,10 @@ function SeniorCommunities() {
                   A little movement. A lot of joy.
                 </h1>
                 <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-                  Every Body Moves partners with senior communities across the greater Denver area
-                  to deliver recurring fitness programming that residents genuinely look forward to.
-                  Warm music, patient instructors, and movement that meets every ability.
+                  Every Body Moves partners with senior communities across the greater Denver and
+                  Utah Valley areas to deliver recurring fitness programming that residents
+                  genuinely look forward to. Warm music, patient instructors, and movement that
+                  meets every ability.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link to="/contact" className="btn-primary">

@@ -20,18 +20,23 @@ const LOCAL_BUSINESS_JSONLD = {
   "@id": BUSINESS_ID,
   name: "Every Body Moves",
   description:
-    "Adaptive movement, yoga, and fitness classes for senior communities, special-needs communities, and private clients across the greater Denver area.",
+    "Adaptive movement, yoga, and fitness classes for senior communities, special-needs communities, and private clients across the greater Denver and Utah Valley areas.",
   url: SITE_URL,
   email: "cassie@everybodymovesco.com",
   telephone: "+1-720-463-3385",
   sameAs: [
     "https://www.instagram.com/everybodymovesco",
+    "https://www.facebook.com/people/Every-Body-Moves/61593435957941/",
     "https://www.linkedin.com/company/everybodymovesco/",
   ],
-  areaServed: {
-    "@type": "City",
-    name: "Denver",
-  },
+  areaServed: [
+    { "@type": "City", name: "Denver", address: { "@type": "PostalAddress", addressRegion: "CO" } },
+    {
+      "@type": "Place",
+      name: "Utah Valley",
+      address: { "@type": "PostalAddress", addressRegion: "UT" },
+    },
+  ],
   address: {
     "@type": "PostalAddress",
     addressRegion: "CO",
@@ -104,11 +109,11 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#152238" },
-      { title: "Every Body Moves — Adaptive Movement Classes in the Greater Denver Area" },
+      { title: "Every Body Moves — Adaptive Movement | Denver & Utah Valley" },
       {
         name: "description",
         content:
-          "Every Body Moves brings adaptive yoga, chair fitness, and joyful movement classes to senior communities, special-needs communities, and private homes across the greater Denver area.",
+          "Adaptive yoga, chair fitness, and joyful movement classes for senior communities, special needs, and private homes across greater Denver & Utah Valley.",
       },
       { name: "author", content: "Every Body Moves" },
       { property: "og:site_name", content: "Every Body Moves" },
@@ -116,7 +121,7 @@ export const Route = createRootRoute({
       {
         property: "og:description",
         content:
-          "Adaptive yoga, chair fitness, and dance that bring energy and connection to every community in the greater Denver area.",
+          "Adaptive yoga, chair fitness, and dance that bring energy and connection to communities across greater Denver & Utah Valley.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL },
@@ -127,7 +132,8 @@ export const Route = createRootRoute({
       { name: "twitter:title", content: "Every Body Moves — Adaptive Movement for Every Body" },
       {
         name: "twitter:description",
-        content: "Joyful, accessible movement classes for every body in the greater Denver area.",
+        content:
+          "Joyful, accessible movement classes for every body across greater Denver & Utah Valley.",
       },
       { name: "twitter:image", content: `${SITE_URL}/og-image.jpg` },
     ],

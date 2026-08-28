@@ -9,7 +9,7 @@ export const Route = createFileRoute("/services/")({
     seo({
       title: "Services — Every Body Moves",
       description:
-        "Chair yoga, dance & Tai Chi for senior communities, adaptive fitness for special needs, and private in-home coaching across the greater Denver area.",
+        "Chair yoga, dance & Tai Chi for senior communities, adaptive fitness for special needs, and private in-home coaching across greater Denver & Utah Valley.",
       path: "/services",
       breadcrumbs: [
         { name: "Home", path: "/" },

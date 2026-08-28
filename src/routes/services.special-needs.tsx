@@ -9,7 +9,7 @@ export const Route = createFileRoute("/services/special-needs")({
     seo({
       title: "Adaptive Fitness for Special Needs — Every Body Moves",
       description:
-        "Sensory-friendly, adaptive fitness programs for children and adults with special needs across the greater Denver area.",
+        "Sensory-friendly, adaptive fitness programs for children and adults with special needs across the greater Denver and Utah Valley areas.",
       path: "/services/special-needs",
       breadcrumbs: [
         { name: "Home", path: "/" },
@@ -24,7 +24,10 @@ export const Route = createFileRoute("/services/special-needs")({
           name: "Adaptive Fitness for Special Needs",
           description:
             "Sensory-friendly, adaptive fitness sessions for children and adults with special needs.",
-          areaServed: { "@type": "City", name: "Denver" },
+          areaServed: [
+            { "@type": "City", name: "Denver" },
+            { "@type": "Place", name: "Utah Valley" },
+          ],
           url: `${SITE_URL}/services/special-needs`,
           provider: { "@id": BUSINESS_ID },
         },

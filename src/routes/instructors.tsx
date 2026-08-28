@@ -19,7 +19,7 @@ export const Route = createFileRoute("/instructors")({
     seo({
       title: "Teach With Us — Every Body Moves",
       description:
-        "Become an Every Body Moves instructor. Lead adaptive yoga, chair fitness, and dance classes across the greater Denver area — flexible hours, meaningful work.",
+        "Become an Every Body Moves instructor. Lead adaptive yoga, chair fitness, and dance classes across greater Denver & Utah Valley — flexible hours.",
       path: "/instructors",
       breadcrumbs: [
         { name: "Home", path: "/" },
@@ -48,7 +48,7 @@ const perks = [
   {
     icon: TrendingUp,
     title: "Room to grow",
-    body: "Take on more classes, new communities, or help shape programming as we grow across the greater Denver area.",
+    body: "Take on more classes, new communities, or help shape programming as we grow across the greater Denver and Utah Valley areas.",
   },
 ];
 
@@ -76,7 +76,7 @@ function Instructors() {
               <Reveal>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/70 text-sm text-ink shadow-soft">
                   <Sparkles className="h-4 w-4 text-orange" />
-                  We're hiring instructors · Greater Denver
+                  We're hiring instructors · Greater Denver & Utah Valley
                 </div>
               </Reveal>
               <Reveal delay={80}>
