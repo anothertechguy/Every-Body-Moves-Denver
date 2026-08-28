@@ -13,9 +13,19 @@ import { join, relative, sep } from "node:path";
 const CLIENT_DIR = "dist/client";
 const SITE_URL = "https://everybodymovesco.com";
 
-if (!existsSync(CLIENT_DIR)) {
-  console.log("[sitemap] no dist/client — skipping (not a static build)");
+// Only the static build (PAGES_BUILD=true, what Cloudflare runs) prerenders
+// pages to crawl. A plain SSR build serves the sitemap dynamically and has
+// nothing to walk, so this is a no-op there rather than a build failure.
+const isStaticBuild = process.env.PAGES_BUILD === "true";
+
+if (!isStaticBuild) {
+  console.log("[sitemap] not a static build (PAGES_BUILD unset) — skipping");
   process.exit(0);
+}
+
+if (!existsSync(CLIENT_DIR)) {
+  console.error(`[sitemap] static build but ${CLIENT_DIR} is missing`);
+  process.exit(1);
 }
 
 /** Every prerendered index.html becomes one route. */
