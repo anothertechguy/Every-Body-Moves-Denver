@@ -187,8 +187,21 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   return (
     <div className="min-h-screen flex flex-col">
+      {/* Keyboard users can jump past the navigation. Focus is moved manually
+          because the router intercepts bare same-page hash links. */}
+      <a
+        href="#main"
+        className="skip-link"
+        onClick={(e) => {
+          e.preventDefault();
+          const main = document.getElementById("main");
+          main?.focus();
+        }}
+      >
+        Skip to content
+      </a>
       <SiteNav />
-      <main className="flex-1">
+      <main id="main" tabIndex={-1} className="flex-1 outline-none">
         <Outlet />
       </main>
       <SiteFooter />

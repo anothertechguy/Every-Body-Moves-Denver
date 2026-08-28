@@ -20,10 +20,12 @@ for (const file of readdirSync(SRC).filter((f) => f.endsWith(".jpg"))) {
       .avif({ quality: 55 })
       .toFile(join(OUT, `${name}-${w}.avif`));
   }
+  // The JPEG is only the fallback for the few browsers without AVIF support,
+  // so it is capped smaller than the largest AVIF variant.
   await input
     .clone()
-    .resize(Math.min(1600, srcW))
-    .jpeg({ quality: 74, mozjpeg: true })
+    .resize(Math.min(1200, srcW))
+    .jpeg({ quality: 72, mozjpeg: true })
     .toFile(join(OUT, `${name}.jpg`));
   console.log("done:", name);
 }

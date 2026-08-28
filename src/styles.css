@@ -85,7 +85,11 @@
   --sand: #f6e2c4;
   --marigold: #efa23e;
   --orange: #ee6c22;
-  --rust: #c8551a;
+  /* Darkened from #c8551a: that shade measured 4.4:1 on white and 4.06:1 on
+     cream — under the 4.5:1 WCAG AA minimum for the small semibold text this
+     token colors (eyebrow labels, "Learn more" links). This value holds the
+     same terracotta hue at 5.49:1 / 5.06:1. */
+  --rust: #b34712;
   --ink: #14243d;
   --ink-soft: #37527d;
   --sky: #a9c4db;
@@ -138,6 +142,23 @@
 
 @utility text-balance {
   text-wrap: balance;
+}
+
+/* Visually hidden until keyboard-focused, then shown above the header. */
+@utility skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  background: var(--ink);
+  color: var(--cream);
+  font-weight: 600;
+  transition: top 150ms ease;
+  &:focus-visible {
+    top: 1rem;
+  }
 }
 
 /* Marker-pen headline highlight. Replaces the old inline-block + absolute-bar
@@ -313,13 +334,15 @@
 /* Scroll-driven reveal — visible by default, enhanced only where supported.
    Uses a native CSS view() timeline so it costs nothing on the main thread and
    never hides content behind JavaScript. */
+/* Transform only — deliberately no opacity. Fading text means audit tools
+   (axe / PageSpeed) can snapshot it mid-animation and report contrast
+   failures against the blended color; a pure rise keeps motion without ever
+   changing the rendered colors. */
 @keyframes revealRise {
   from {
-    opacity: 0;
     transform: translateY(26px);
   }
   to {
-    opacity: 1;
     transform: translateY(0);
   }
 }

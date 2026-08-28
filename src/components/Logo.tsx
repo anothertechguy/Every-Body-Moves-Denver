@@ -18,12 +18,14 @@ export function BrandMark({
   const bowl = tone === "dark" ? "var(--cream)" : "var(--ink)";
   const bodyLower = tone === "dark" ? "var(--ink)" : "#ffffff";
 
+  // Decorative: the mark always sits beside the visible wordmark, which is the
+  // accessible name. Labelling the SVG too would double the name ("Every Body
+  // Moves Every Body Moves") and trip label-content-name-mismatch audits.
   return (
     <svg
       viewBox="0 0 120 120"
       className={className}
-      role="img"
-      aria-label="Every Body Moves"
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
     >
       {/* open bowl / base */}
@@ -44,11 +46,7 @@ export function BrandMark({
 export function Logo({ className = "", tone = "light" }: { className?: string; tone?: Tone }) {
   const ink = tone === "dark" ? "text-cream" : "text-ink";
   return (
-    <Link
-      to="/"
-      className={`group inline-flex items-center gap-3 ${className}`}
-      aria-label="Every Body Moves — home"
-    >
+    <Link to="/" className={`group inline-flex items-center gap-3 ${className}`}>
       <BrandMark
         tone={tone}
         className="h-11 w-11 shrink-0 transition-transform duration-500 ease-out group-hover:-rotate-6"

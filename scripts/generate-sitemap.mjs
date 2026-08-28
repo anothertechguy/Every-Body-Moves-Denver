@@ -7,7 +7,7 @@
  *
  * Run automatically via the `postbuild` npm script.
  */
-import { readdirSync, statSync, writeFileSync, existsSync } from "node:fs";
+import { readdirSync, statSync, writeFileSync, existsSync, copyFileSync } from "node:fs";
 import { join, relative, sep } from "node:path";
 
 const CLIENT_DIR = "dist/client";
@@ -80,3 +80,9 @@ const xml = [
 
 writeFileSync(join(CLIENT_DIR, "sitemap.xml"), xml);
 console.log(`[sitemap] wrote ${routes.length} URLs to ${CLIENT_DIR}/sitemap.xml`);
+
+// Static hosts serve /404.html for unknown URLs. The app shell hydrates and the
+// router renders the branded not-found page — without this, visitors to a bad
+// link would get the host's default error screen.
+copyFileSync(join(CLIENT_DIR, "index.html"), join(CLIENT_DIR, "404.html"));
+console.log("[sitemap] wrote 404.html fallback");
