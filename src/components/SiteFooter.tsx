@@ -120,7 +120,7 @@ export function SiteFooter() {
                   className="flex items-start gap-2 hover:text-marigold transition-colors"
                 >
                   <Mail className="h-4 w-4 mt-1 text-orange shrink-0" />
-                  <span className="min-w-0 break-words">cassie@everybodymovesco.com</span>
+                  <span className="min-w-0 [overflow-wrap:anywhere]">cassie@everybodymovesco.com</span>
                 </a>
               </li>
               <li>

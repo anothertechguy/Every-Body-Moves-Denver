@@ -65,7 +65,14 @@ function Contact() {
               {
                 icon: Mail,
                 label: "Email",
-                value: "cassie@everybodymovesco.com",
+                // <wbr> lets the address break cleanly after the @ on narrow
+                // screens instead of forcing the card wider than the viewport
+                value: (
+                  <>
+                    cassie@<wbr />
+                    everybodymovesco.com
+                  </>
+                ),
                 href: "mailto:cassie@everybodymovesco.com",
               },
               { icon: Phone, label: "Phone", value: "(720) 463-3385", href: "tel:+17204633385" },
@@ -87,7 +94,11 @@ function Contact() {
                     <div className="text-xs uppercase tracking-wider text-muted-foreground">
                       {c.label}
                     </div>
-                    <div className="font-display text-lg text-ink break-words">{c.value}</div>
+                    {/* overflow-wrap:anywhere shrinks the min-content width so
+                        the card can never outgrow a narrow viewport */}
+                    <div className="font-display text-lg text-ink [overflow-wrap:anywhere]">
+                      {c.value}
+                    </div>
                   </div>
                 </div>
               );
