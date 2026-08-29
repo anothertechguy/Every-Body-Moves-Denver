@@ -67,7 +67,7 @@ const xml = [
   ...routes.map((route) =>
     [
       "  <url>",
-      `    <loc>${SITE_URL}${route === "/" ? "/" : route}</loc>`,
+      `    <loc>${SITE_URL}${route === "/" ? "/" : `${route}/`}</loc>`,
       `    <lastmod>${lastmod}</lastmod>`,
       `    <changefreq>${route === "/" ? "weekly" : "monthly"}</changefreq>`,
       `    <priority>${priorityFor(route)}</priority>`,

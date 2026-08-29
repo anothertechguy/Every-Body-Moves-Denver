@@ -1,8 +1,15 @@
 export const SITE_URL = "https://everybodymovesco.com";
 export const BUSINESS_ID = `${SITE_URL}/#business`;
 
+/**
+ * Canonical URLs use trailing slashes because that is how the host actually
+ * serves the prerendered pages (each page is a folder's index.html, and the
+ * slash-less URL 308-redirects to the slashed one). Canonicals must point at
+ * the URL that returns 200, or they form a redirect loop in Google's eyes.
+ */
 function toUrl(path: string) {
-  return path === "/" ? `${SITE_URL}/` : `${SITE_URL}${path}`;
+  if (path === "/") return `${SITE_URL}/`;
+  return `${SITE_URL}${path.endsWith("/") ? path : `${path}/`}`;
 }
 
 /**

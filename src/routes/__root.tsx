@@ -124,7 +124,7 @@ export const Route = createRootRoute({
           "Adaptive yoga, chair fitness, and dance that bring energy and connection to communities across greater Denver & Utah Valley.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: SITE_URL },
+      { property: "og:url", content: `${SITE_URL}/` },
       { property: "og:image", content: `${SITE_URL}/og-image.jpg` },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },

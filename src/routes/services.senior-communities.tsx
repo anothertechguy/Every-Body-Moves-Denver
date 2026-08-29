@@ -28,7 +28,7 @@ export const Route = createFileRoute("/services/senior-communities")({
             { "@type": "City", name: "Denver" },
             { "@type": "Place", name: "Utah Valley" },
           ],
-          url: `${SITE_URL}/services/senior-communities`,
+          url: `${SITE_URL}/services/senior-communities/`,
           provider: { "@id": BUSINESS_ID },
         },
       ],

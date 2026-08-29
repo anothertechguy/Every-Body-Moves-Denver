@@ -28,7 +28,7 @@ export const Route = createFileRoute("/services/private-coaching")({
             { "@type": "City", name: "Denver" },
             { "@type": "Place", name: "Utah Valley" },
           ],
-          url: `${SITE_URL}/services/private-coaching`,
+          url: `${SITE_URL}/services/private-coaching/`,
           provider: { "@id": BUSINESS_ID },
         },
       ],
