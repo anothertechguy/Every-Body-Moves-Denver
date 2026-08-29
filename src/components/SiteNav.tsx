@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Logo } from "./Logo";
 
@@ -30,6 +30,8 @@ export function SiteNav() {
   // followed by the click, which would open then instantly re-close the menu —
   // there, tap-to-toggle is the only handler.
   const [canHover, setCanHover] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const servicesButtonRef = useRef<HTMLButtonElement>(null);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
@@ -51,6 +53,26 @@ export function SiteNav() {
     setOpen(false);
     setServicesOpen(false);
   }, [pathname]);
+
+  // Escape closes whichever disclosure is open and returns focus to its
+  // trigger — expected behaviour for a menu button, and the only way out
+  // for a keyboard user who opened one by mistake.
+  useEffect(() => {
+    if (!open && !servicesOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (servicesOpen) {
+        setServicesOpen(false);
+        servicesButtonRef.current?.focus();
+      }
+      if (open) {
+        setOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open, servicesOpen]);
 
   const inServices = pathname.startsWith("/services");
 
@@ -83,6 +105,7 @@ export function SiteNav() {
               }}
             >
               <button
+                ref={servicesButtonRef}
                 className="nav-link flex items-center gap-1"
                 data-status={inServices ? "active" : undefined}
                 aria-expanded={servicesOpen}
@@ -146,6 +169,7 @@ export function SiteNav() {
           </div>
 
           <button
+            ref={menuButtonRef}
             className="lg:hidden p-2 text-ink"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
