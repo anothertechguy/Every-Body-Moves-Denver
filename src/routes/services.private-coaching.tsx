@@ -96,6 +96,7 @@ function PrivateCoaching() {
                   <div className="absolute -inset-6 bg-gradient-to-tr from-rust/40 to-sand/60 rounded-[3rem] blur-2xl -z-10" />
                   <Pic
                     name="private-coaching"
+                    priority
                     alt="Trainer coaching a client at home with dumbbells"
                     width={1600}
                     height={1104}

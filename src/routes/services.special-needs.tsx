@@ -96,6 +96,7 @@ function SpecialNeeds() {
                   <div className="absolute -inset-6 bg-gradient-to-tr from-sky/40 to-ink-soft/50 rounded-[3rem] blur-2xl -z-10" />
                   <Pic
                     name="special-needs"
+                    priority
                     alt="Adaptive coach with a smiling teen doing balance work"
                     width={1600}
                     height={1104}

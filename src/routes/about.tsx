@@ -49,6 +49,7 @@ function About() {
               <div className="absolute -inset-4 bg-gradient-to-br from-orange/40 to-ink-soft/40 rounded-[2.5rem] blur-xl -z-10" />
               <Pic
                 name="hero-home"
+                priority
                 alt="Instructor guiding seniors in chair yoga"
                 width={1600}
                 height={1104}

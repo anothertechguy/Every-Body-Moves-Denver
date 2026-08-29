@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "postbuild": "node scripts/generate-sitemap.mjs",
+    "postbuild": "node scripts/inline-css.mjs && node scripts/generate-sitemap.mjs",
     "test:contact": "tsx functions/__tests__/contact.test.mjs"
   },
   "dependencies": {

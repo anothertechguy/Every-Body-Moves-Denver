@@ -97,6 +97,7 @@ function SeniorCommunities() {
                   <div className="absolute -inset-6 bg-gradient-to-tr from-orange/40 to-ink-soft/40 rounded-[3rem] blur-2xl -z-10" />
                   <Pic
                     name="nursing-homes"
+                    priority
                     alt="Seniors doing seated dance with colorful scarves"
                     width={1600}
                     height={1104}
