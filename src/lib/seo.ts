@@ -31,12 +31,15 @@ export function seo({
   path,
   breadcrumbs,
   jsonLd,
+  links,
 }: {
   title: string;
   description: string;
   path: string;
   breadcrumbs?: { name: string; path: string }[];
   jsonLd?: Record<string, unknown>[];
+  /** Extra head links, e.g. a picPreload() for the page's LCP hero image. */
+  links?: Record<string, string>[];
 }) {
   const url = toUrl(path);
 
@@ -70,7 +73,7 @@ export function seo({
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
     ],
-    links: [{ rel: "canonical", href: url }],
+    links: [{ rel: "canonical", href: url }, ...(links ?? [])],
     ...(scripts.length ? { scripts } : {}),
   };
 }

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { seo, BUSINESS_ID, SITE_URL } from "@/lib/seo";
 import { ArrowRight, Music, Sparkles, Heart, CheckCircle2, Wind } from "lucide-react";
 import { Reveal, Parallax } from "@/components/Reveal";
-import { Pic } from "@/components/Pic";
+import { Pic, picPreload } from "@/components/Pic";
 
 export const Route = createFileRoute("/services/senior-communities")({
   head: () =>
@@ -11,6 +11,7 @@ export const Route = createFileRoute("/services/senior-communities")({
       description:
         "Chair yoga, dance, Tai Chi, and mobility programs designed for senior communities across the greater Denver and Utah Valley areas.",
       path: "/services/senior-communities",
+      links: [picPreload("nursing-homes")],
       breadcrumbs: [
         { name: "Home", path: "/" },
         { name: "Services", path: "/services" },

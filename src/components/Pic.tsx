@@ -20,6 +20,28 @@ const MAX_WIDTH: Record<string, number> = {
 
 export type PicName = keyof typeof MAX_WIDTH;
 
+function avifSrcSetFor(name: PicName) {
+  return VARIANT_WIDTHS.filter((w) => w <= (MAX_WIDTH[name] ?? 1600))
+    .map((w) => `${asset(`images/${name}-${w}.avif`)} ${w}w`)
+    .join(", ");
+}
+
+/**
+ * Head <link rel="preload"> descriptor for a priority Pic, so the LCP image
+ * starts downloading while the HTML is still streaming instead of after the
+ * parser reaches the <img>. Pair with <Pic priority> for the same name.
+ */
+export function picPreload(name: PicName, sizes = "(min-width: 1024px) 50vw, 100vw") {
+  return {
+    rel: "preload",
+    as: "image",
+    type: "image/avif",
+    imageSrcSet: avifSrcSetFor(name),
+    imageSizes: sizes,
+    fetchPriority: "high",
+  } as const;
+}
+
 export function Pic({
   name,
   alt,
@@ -37,9 +59,7 @@ export function Pic({
   height: number;
   priority?: boolean;
 }) {
-  const avifSrcSet = VARIANT_WIDTHS.filter((w) => w <= (MAX_WIDTH[name] ?? 1600))
-    .map((w) => `${asset(`images/${name}-${w}.avif`)} ${w}w`)
-    .join(", ");
+  const avifSrcSet = avifSrcSetFor(name);
 
   return (
     <picture>

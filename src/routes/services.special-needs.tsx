@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { seo, BUSINESS_ID, SITE_URL } from "@/lib/seo";
 import { ArrowRight, Puzzle, HeartHandshake, Smile, Shield, CheckCircle2 } from "lucide-react";
 import { Reveal, Parallax } from "@/components/Reveal";
-import { Pic } from "@/components/Pic";
+import { Pic, picPreload } from "@/components/Pic";
 
 export const Route = createFileRoute("/services/special-needs")({
   head: () =>
@@ -11,6 +11,7 @@ export const Route = createFileRoute("/services/special-needs")({
       description:
         "Sensory-friendly, adaptive fitness programs for children and adults with special needs across the greater Denver and Utah Valley areas.",
       path: "/services/special-needs",
+      links: [picPreload("special-needs")],
       breadcrumbs: [
         { name: "Home", path: "/" },
         { name: "Services", path: "/services" },

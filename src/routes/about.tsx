@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { seo } from "@/lib/seo";
 import { ArrowRight, Heart, Sparkles, Users } from "lucide-react";
 import { Reveal, Parallax } from "@/components/Reveal";
-import { Pic } from "@/components/Pic";
+import { Pic, picPreload } from "@/components/Pic";
 
 export const Route = createFileRoute("/about")({
   head: () =>
@@ -11,6 +11,7 @@ export const Route = createFileRoute("/about")({
       description:
         "Every Body Moves brings gentle, joyful, adaptive fitness to senior communities, families, and communities of every ability across greater Denver & Utah Valley.",
       path: "/about",
+      links: [picPreload("hero-home")],
       breadcrumbs: [
         { name: "Home", path: "/" },
         { name: "About", path: "/about" },

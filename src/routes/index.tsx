@@ -10,7 +10,7 @@ import {
   Quote,
 } from "lucide-react";
 import { Reveal, Parallax } from "@/components/Reveal";
-import { Pic } from "@/components/Pic";
+import { Pic, picPreload } from "@/components/Pic";
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -19,6 +19,7 @@ export const Route = createFileRoute("/")({
       description:
         "Chair yoga, dance, Tai Chi, and adaptive fitness for senior communities, special needs, and private homes across greater Denver & Utah Valley.",
       path: "/",
+      links: [picPreload("hero-home")],
     }),
   component: Home,
 });

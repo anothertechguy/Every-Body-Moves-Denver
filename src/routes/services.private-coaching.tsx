@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { seo, BUSINESS_ID, SITE_URL } from "@/lib/seo";
 import { ArrowRight, Home, Calendar, Target, HeartPulse, CheckCircle2 } from "lucide-react";
 import { Reveal, Parallax } from "@/components/Reveal";
-import { Pic } from "@/components/Pic";
+import { Pic, picPreload } from "@/components/Pic";
 
 export const Route = createFileRoute("/services/private-coaching")({
   head: () =>
@@ -11,6 +11,7 @@ export const Route = createFileRoute("/services/private-coaching")({
       description:
         "One-on-one personal training and wellness coaching in your home, backyard, or building's gym anywhere across the greater Denver and Utah Valley areas.",
       path: "/services/private-coaching",
+      links: [picPreload("private-coaching")],
       breadcrumbs: [
         { name: "Home", path: "/" },
         { name: "Services", path: "/services" },
