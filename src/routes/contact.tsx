@@ -81,7 +81,9 @@ function Contact() {
                   <div className="h-11 w-11 rounded-2xl bg-gradient-to-br from-orange to-marigold text-white flex items-center justify-center shrink-0 shadow-soft">
                     <c.icon className="h-5 w-5" />
                   </div>
-                  <div>
+                  {/* min-w-0 lets the flex item shrink below the email's
+                      intrinsic width so break-words can actually wrap it */}
+                  <div className="min-w-0">
                     <div className="text-xs uppercase tracking-wider text-muted-foreground">
                       {c.label}
                     </div>
