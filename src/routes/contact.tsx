@@ -234,7 +234,7 @@ function Contact() {
                         <select
                           id="contact-interest"
                           name="interest"
-                          className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 outline-none focus:border-ink transition-colors"
+                          className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 focus:border-ink transition-colors"
                           defaultValue=""
                         >
                           <option value="" disabled>
@@ -255,7 +255,7 @@ function Contact() {
                         id="contact-message"
                         name="message"
                         rows={5}
-                        className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 outline-none focus:border-ink transition-colors resize-none"
+                        className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 focus:border-ink transition-colors resize-none"
                         placeholder="Where are you located? What kind of programming are you thinking about?"
                       />
                     </div>
@@ -303,7 +303,7 @@ function Field({
         type={type}
         required={required}
         autoComplete={type === "email" ? "email" : type === "tel" ? "tel" : "on"}
-        className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 outline-none focus:border-ink transition-colors"
+        className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 focus:border-ink transition-colors"
       />
     </div>
   );

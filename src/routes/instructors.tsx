@@ -276,7 +276,7 @@ function Instructors() {
                         <select
                           id="apply-classes"
                           name="classes"
-                          className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 outline-none focus:border-ink transition-colors"
+                          className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 focus:border-ink transition-colors"
                           defaultValue=""
                         >
                           <option value="" disabled>
@@ -310,7 +310,7 @@ function Instructors() {
                         id="apply-experience"
                         name="experience"
                         rows={4}
-                        className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 outline-none focus:border-ink transition-colors resize-none"
+                        className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 focus:border-ink transition-colors resize-none"
                         placeholder="Tell us about your certifications (yoga, group fitness, CPR…) and any experience with seniors or adaptive fitness."
                       />
                     </div>
@@ -364,7 +364,7 @@ function Field({
         required={required}
         placeholder={placeholder}
         autoComplete={type === "email" ? "email" : type === "tel" ? "tel" : "on"}
-        className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 outline-none focus:border-ink transition-colors"
+        className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 focus:border-ink transition-colors"
       />
     </div>
   );
