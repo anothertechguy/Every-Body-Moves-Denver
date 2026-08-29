@@ -4,6 +4,10 @@
   X-Frame-Options: SAMEORIGIN
   Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
+  # Cloudflare turns these into 103 Early Hints, so the fonts start
+  # downloading before the HTML response arrives.
+  Link: </fonts/manrope-var.woff2>; rel=preload; as=font; type=font/woff2; crossorigin
+  Link: </fonts/plus-jakarta-sans-var.woff2>; rel=preload; as=font; type=font/woff2; crossorigin
 
 # Hashed filenames change whenever the content changes, so they can be cached
 # permanently. Everything else is revalidated so edits go live immediately.
