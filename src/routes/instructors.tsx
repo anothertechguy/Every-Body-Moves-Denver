@@ -131,9 +131,9 @@ function Instructors() {
                   <div className="absolute -inset-6 bg-gradient-to-tr from-orange/40 to-sky/50 rounded-[3rem] blur-2xl -z-10" />
                   <Pic
                     name="special-needs"
-                    alt="An Every Body Moves instructor encouraging a participant"
+                    alt="Every Body Moves instructors and class participants smiling together in a gym after class"
                     width={1600}
-                    height={1104}
+                    height={1201}
                     priority
                     className="rounded-[2.5rem] shadow-lift w-full aspect-[4/3] object-cover"
                   />

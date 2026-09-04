@@ -98,9 +98,9 @@ function SpecialNeeds() {
                   <Pic
                     name="special-needs"
                     priority
-                    alt="Adaptive coach with a smiling teen doing balance work"
+                    alt="Every Body Moves instructors and class participants smiling together in a gym after class"
                     width={1600}
-                    height={1104}
+                    height={1201}
                     className="rounded-[2.5rem] shadow-lift w-full aspect-[4/3] object-cover"
                   />
                 </div>
