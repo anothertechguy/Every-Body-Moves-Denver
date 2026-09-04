@@ -94,6 +94,21 @@ Run through these on the live domain:
 
 ---
 
+## Replacing a photo
+
+Photos in `public/images/` keep stable filenames and are edge-cached for 7 days
+(`/images/*` in `public/_headers`). Swapping a photo under the same name
+therefore needs a cache purge or visitors keep seeing the old one:
+
+1. Drop the new source JPEG into `src/assets/<name>.jpg` and regenerate the
+   AVIF variants + JPEG fallback (same settings as `scripts/optimize-images.mjs`).
+2. Update the `alt` text and `height` wherever that `<Pic name="...">` is used.
+3. Push. After the deployment is live, **Cloudflare → everybodymovesco.com →
+   Caching → Configuration → Purge Cache → Custom purge → URL**, and list every
+   variant: `/images/<name>-480.avif`, `-800`, `-1200`, `-1600`, and `<name>.jpg`.
+4. Confirm with `curl -sI https://everybodymovesco.com/images/<name>-800.avif`
+   — `content-length` must match the local file.
+
 ## Troubleshooting the forms
 
 The site never claims a message was sent unless the email actually went out. If
