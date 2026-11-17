@@ -57,7 +57,7 @@ const perks = [
 const lookingFor = [
   "A warm, patient presence — you meet people exactly where they are",
   "Experience teaching fitness, yoga, dance, or movement (adaptive or senior a big plus)",
-  "Current certification in your specialty and CPR",
+  "Current certification in your specialty",
   "Reliability and heart — communities count on you showing up with energy",
   "Comfortable adapting on the fly for wheelchairs, chairs, and every ability",
   "A clean background check (we'll help you through it)",
@@ -311,7 +311,7 @@ function Instructors() {
                         name="experience"
                         rows={4}
                         className="mt-1.5 w-full rounded-2xl border border-border bg-cream/60 px-4 py-3 focus:border-ink transition-colors resize-none"
-                        placeholder="Tell us about your certifications (yoga, group fitness, CPR…) and any experience with seniors or adaptive fitness."
+                        placeholder="Tell us about your certifications (yoga, group fitness…) and any experience with seniors or adaptive fitness."
                       />
                     </div>
                     {error && <FormError message={error} />}
